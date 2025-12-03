@@ -1,74 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Nombre de la Página</title>
-    
-    <link rel="stylesheet" href="estilos.css"> 
-</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio Personal de [Tu Nombre] - Inicio">
-    <title>Portfolio - Inicio</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Hola mundo</title>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo de mi portfolio" style="width: 50px; height: 50px;">
-        </div>
-        <div class="titulo">
-            <h1>[Tu Título o Nombre]</h1>
-        </div>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html" class="boton-nav">Inicio</a></li>
-                <li><a href="proyectos.html" class="boton-nav">Proyectos</a></li>
-                <li><a href="contacto.html" class="boton-nav">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="contenedor-principal">
-        
-        <aside class="proyectos-destacados">
-            <h2>Proyectos Destacados</h2>
-            
-            <article class="proyecto-izquierdo">
-                <h3>Proyecto 1</h3>
-                <p>Descripción breve del proyecto principal 1.</p>
-                <a href="detalle_proyecto1.html" class="boton-detalle">Clicar y ver</a>
-            </article>
-
-            <article class="proyecto-izquierdo">
-                <h3>Proyecto 2</h3>
-                <p>Descripción breve del proyecto principal 2.</p>
-                <a href="detalle_proyecto2.html" class="boton-detalle">Clicar y ver</a>
-            </article>
-        </aside>
-
-        <section class="informacion-principal">
-            <h2>Información del proyecto / Perfil Profesional</h2>
-            <p>Aquí pondrás la información general sobre ti, tus habilidades, y una descripción detallada de tu perfil o del proyecto más relevante.</p>
-            <p>Este es el espacio grande que has indicado para la información principal.</p>
-        </section>
-
-    </main>
-    
-    <footer>
-        <section class="pagina-de-contactos">
-            <h3>Página de Contactos / Redes Sociales</h3>
-            <p>Email: tu.email@ejemplo.com | Teléfono: +34 123 456 789</p>
-            <div class="social">
-                <a href="#">LinkedIn</a> | <a href="#">GitHub</a>
-            </div>
-            <p>&copy; 2025 [Tu Nombre] - Todos los derechos reservados.</p>
-        </section>
-    </footer>
-    
-    <script>
-        // Aquí debes incluir una de tus 3 funcionalidades en JavaScript
-    </script>
+    <h1>Hola Mundo</h1>
+    <p>¡Hola!</p>
 </body>
 </html>
