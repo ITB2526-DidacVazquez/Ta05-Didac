@@ -29,10 +29,13 @@ header {
     border-radius: 4px;
 }
 
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
+/* Estilo para ajustar el tamaño del logo */
+.img-logo {
+    max-height: 60px; /* Ajusta este número según el alto que quieras */
+    width: auto;      /* Mantiene la proporción para que no se deforme */
+    display: block;   /* Evita espacios extra debajo de la imagen */
 }
+
 
 /* Navegador secundario (Azul claro) */
 .navegador-secundario {
