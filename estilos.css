@@ -1,5 +1,5 @@
 /* ================================================= */
-/* 1. RESET Y CONFIGURACIÓN BASE */
+/* 1. ESTRUCTURA BÁSICA (RESET) */
 /* ================================================= */
 * {
     box-sizing: border-box;
@@ -8,165 +8,106 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f7f6;
-    color: #333;
-    min-height: 100vh;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ================================================= */
-/* 2. ESTRUCTURA Y CONTENEDORES */
+/* 2. CABECERA (LOGO Y TÍTULO) */
 /* ================================================= */
-.contenedor-principal {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 90%;
-}
-
 header {
-    background-color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    border-bottom: 3px solid #3f51b5;
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
 }
 
-header h1 {
-    color: #3f51b5;
-    font-size: 2rem;
-    margin-top: 10px;
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-/* Navegación Superior */
+/* Navegador secundario */
 .navegador-secundario {
-    background-color: #3f51b5;
-    padding: 10px 0;
+    border: 2px solid black;
+    margin: 0 10px 10px 10px;
+    padding: 10px;
     text-align: center;
 }
 
 .navegador-secundario a {
-    color: white;
-    text-decoration: none;
     margin: 0 15px;
-    font-weight: bold;
-    transition: opacity 0.3s;
-}
-
-.navegador-secundario a:hover {
-    opacity: 0.7;
+    text-decoration: none;
+    color: blue;
 }
 
 /* ================================================= */
-/* 3. CUERPO PRINCIPAL (Layout 2 columnas) */
+/* 3. BLOQUE CENTRAL (EL CUERPO DEL ESQUEMA) */
 /* ================================================= */
 main {
-    display: flex;
-    max-width: 1100px;
-    margin: 30px auto;
-    width: 90%;
-    gap: 30px;
-    flex-grow: 1;
+    display: flex; /* Esto pone el ASIDE y el SECTION uno al lado del otro */
+    flex: 1;
+    margin: 0 10px;
+    gap: 10px;
 }
 
-/* BARRA LATERAL (Botones de Proyectos) */
+/* Barra Lateral Izquierda */
 aside {
-    flex: 0 0 250px; /* Ancho fijo */
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    height: fit-content;
+    flex: 0 0 250px; /* Ancho fijo para la barra lateral */
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .proyecto-item {
-    display: block;
-    padding: 15px 20px;
+    padding: 20px;
+    border-bottom: 1px solid black;
     text-decoration: none;
-    color: #444;
-    border-bottom: 1px solid #eee;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    color: black;
+    text-align: center;
+    display: block;
 }
 
-/* Estilo para los que son enlaces (Proyecto 1 y 2) */
-a.proyecto-item {
-    background-color: #ffffff;
+.proyecto-item:hover {
+    background-color: #f0f0f0;
 }
 
-a.proyecto-item:hover {
-    background-color: #e8eaf6;
-    color: #3f51b5;
-    padding-left: 30px; /* Efecto de desplazamiento */
-}
-
-/* Estilo para los que NO son enlaces todavía (3 al 6) */
-div.proyecto-item {
-    color: #999;
-    background-color: #fafafa;
-    cursor: not-serif;
-}
-
-/* SECCIÓN DE IMÁGENES (Derecha) */
+/* Área de Contenido Derecha */
 section {
-    flex-grow: 1;
+    flex: 1; /* Ocupa todo el espacio restante */
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    padding: 10px;
 }
 
 .contenedor-imagen {
+    flex: 1;
+    border: 1px solid gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    background-color: #ffffff;
-    border: 2px dashed #cbd5e0;
-    border-radius: 8px;
     text-decoration: none;
-    color: #555;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.contenedor-imagen:hover {
-    border-color: #3f51b5;
-    background-color: #e8eaf6;
-    color: #3f51b5;
-    transform: translateY(-5px);
+    color: black;
+    background-color: #fafafa;
 }
 
 /* ================================================= */
-/* 4. PIE DE PÁGINA */
+/* 4. PIE DE PÁGINA (COPYRIGHT / CONTACTO) */
 /* ================================================= */
 footer {
-    background-color: #2d3748;
-    color: white;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    margin-top: auto;
 }
 
 footer a {
+    color: blue;
     font-weight: bold;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #ffffff !important;
-    text-decoration: underline;
-}
-
-/* Responsive: si la pantalla es pequeña, se pone una columna debajo de otra */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-    aside {
-        flex: none;
-        width: 100%;
-    }
 }
