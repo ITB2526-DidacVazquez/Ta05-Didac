@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Proyecto</title>
+    <link rel="stylesheet" href="estilos_contacto.css">
+</head>
+<body>
+
+    <header class="header-contacto">
+        <h1>Página de Contacto</h1>
+    </header>
+
+    <main class="contacto-main">
+        
+        <section class="info-directa">
+            <h2>Datos de contacto</h2>
+            <p>Puedes encontrarnos en:</p>
+            <ul>
+                <li><strong>Email:</strong> info@ejemplo.com</li>
+                <li><strong>Teléfono:</strong> +34 123 456 789</li>
+            </ul>
+            <br>
+            <a href="indice.html">← Volver al índice</a>
+        </section>
+
+        <section class="formulario-container">
+            <h2>Envíanos un mensaje</h2>
+            <form id="formContacto" class="contacto-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar Formulario</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Copyright © 2025. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="scripts_contacto.js"></script>
+
+</body>
+</html>
