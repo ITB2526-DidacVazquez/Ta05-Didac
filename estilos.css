@@ -1,190 +1,172 @@
-/* --------------------------------- */
-/* 1. Estilos Generales y Tipografía */
-/* --------------------------------- */
+/* ================================================= */
+/* 1. RESET Y CONFIGURACIÓN BASE */
+/* ================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px; /* Ancho máximo para el contenido principal */
-    margin: 20px auto;
+/* ================================================= */
+/* 2. ESTRUCTURA Y CONTENEDORES */
+/* ================================================= */
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 90%;
 }
 
-h1, h2, h3 {
-    color: #1a4d8c; /* Color de marca */
-    margin-top: 1.5em;
-}
-
-/* --------------------------------- */
-/* 2. HEADER y Navegación (Logo + Título + Menú) */
-/* --------------------------------- */
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em 20px;
-    display: flex;
-    /* Alineación de Logo/Título y Nav en la misma línea */
-    justify-content: space-between; 
-    align-items: center;
-    border-bottom: 5px solid #1a4d8c;
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #3f51b5;
 }
 
-header .logo img {
-    /* Estilo para el pequeño hueco del logo */
-    vertical-align: middle;
+header h1 {
+    color: #3f51b5;
+    font-size: 2rem;
+    margin-top: 10px;
 }
 
-header .titulo h1 {
-    color: white;
-    margin: 0;
+/* Navegación Superior */
+.navegador-secundario {
+    background-color: #3f51b5;
+    padding: 10px 0;
+    text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav li {
-    margin-left: 20px;
-}
-
-/* Estilo para los enlaces de navegación */
-.boton-nav {
+.navegador-secundario a {
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
-    transition: background-color 0.3s;
-    border-radius: 4px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: opacity 0.3s;
 }
 
-.boton-nav:hover {
-    background-color: #555;
+.navegador-secundario a:hover {
+    opacity: 0.7;
 }
 
-
-/* --------------------------------- */
-/* 3. MAQUETACIÓN PRINCIPAL (Layout de Columnas) */
-/* Este es el código clave para replicar tu esbozo */
-/* --------------------------------- */
-
-.contenedor-principal {
-    display: flex; /* Habilitar Flexbox */
-    gap: 30px; /* Espacio entre las dos columnas */
-    align-items: stretch; /* Asegurar que las columnas tengan la misma altura */
-    min-height: 60vh; /* Altura mínima para visualizar bien el layout */
+/* ================================================= */
+/* 3. CUERPO PRINCIPAL (Layout 2 columnas) */
+/* ================================================= */
+main {
+    display: flex;
+    max-width: 1100px;
+    margin: 30px auto;
+    width: 90%;
+    gap: 30px;
+    flex-grow: 1;
 }
 
-/* Columna Izquierda: Proyectos Destacados (ASIDE) */
-.proyectos-destacados {
-    flex-basis: 30%; /* Ocupa un 30% del ancho */
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ddd;
+/* BARRA LATERAL (Botones de Proyectos) */
+aside {
+    flex: 0 0 250px; /* Ancho fijo */
+    background: white;
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    height: fit-content;
 }
 
-.proyecto-izquierdo {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-left: 5px solid #1a4d8c; /* Línea de color para destacar */
+.proyecto-item {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-/* Columna Derecha: Información Principal (SECTION) */
-.informacion-principal {
-    flex-basis: 70%; /* Ocupa el 70% restante */
-    padding: 30px;
-    background-color: white;
+/* Estilo para los que son enlaces (Proyecto 1 y 2) */
+a.proyecto-item {
+    background-color: #ffffff;
+}
+
+a.proyecto-item:hover {
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    padding-left: 30px; /* Efecto de desplazamiento */
+}
+
+/* Estilo para los que NO son enlaces todavía (3 al 6) */
+div.proyecto-item {
+    color: #999;
+    background-color: #fafafa;
+    cursor: not-serif;
+}
+
+/* SECCIÓN DE IMÁGENES (Derecha) */
+section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #ffffff;
+    border: 2px dashed #cbd5e0;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* --------------------------------- */
-/* 4. FOOTER (Página de Contactos) */
-/* --------------------------------- */
+.contenedor-imagen:hover {
+    border-color: #3f51b5;
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    transform: translateY(-5px);
+}
+
+/* ================================================= */
+/* 4. PIE DE PÁGINA */
+/* ================================================= */
 footer {
-    background-color: #333;
+    background-color: #2d3748;
     color: white;
     text-align: center;
-    padding: 1.5em 0;
-    margin-top: 40px;
+    padding: 20px 0;
+    margin-top: auto;
 }
 
-.pagina-de-contactos h3 {
-    color: white;
-    margin-top: 0;
-}
-
-.social a {
-    color: #8cadda;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.social a:hover {
-    color: white;
-}
-
-/* --------------------------------- */
-/* 5. Estilos de Botones/Enlaces (REQUISITO: Enlaces como botones) */
-/* --------------------------------- */
-.boton-detalle { 
-    display: inline-block;
-    background-color: #007bff; /* Color primario */
-    color: white;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9em;
+footer a {
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s;
 }
 
-.boton-detalle:hover {
-    background-color: #0056b3; /* Tono más oscuro al pasar el ratón (hover) */
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
 }
 
-/* --------------------------------- */
-/* 6. RESPONSIVE DESIGN (Opcional pero recomendado) */
-/* Para dispositivos más pequeños (móviles) */
-/* --------------------------------- */
+/* Responsive: si la pantalla es pequeña, se pone una columna debajo de otra */
 @media (max-width: 768px) {
-    
-    /* En pantallas pequeñas, las columnas se apilan verticalmente */
-    .contenedor-principal {
+    main {
         flex-direction: column;
-        gap: 20px;
     }
-
-    /* Cada columna ocupa el 100% del ancho */
-    .proyectos-destacados,
-    .informacion-principal {
-        flex-basis: 100%;
-    }
-
-    /* El header ajusta la alineación */
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 10px;
-    }
-
-    nav li {
-        margin-left: 0;
+    aside {
+        flex: none;
+        width: 100%;
     }
 }
