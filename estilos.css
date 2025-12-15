@@ -1,5 +1,5 @@
 /* ================================================= */
-/* 1. ESTRUCTURA BÁSICA (RESET) */
+/* 1. ESTRUCTURA BÁSICA Y COLORES GENERALES */
 /* ================================================= */
 * {
     box-sizing: border-box;
@@ -8,22 +8,25 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f4f4f9; /* Fondo gris muy claro para resaltar las cajas */
 }
 
 /* ================================================= */
-/* 2. CABECERA (LOGO Y TÍTULO) */
+/* 2. CABECERA (AZUL COMO LAS DEMÁS) */
 /* ================================================= */
 header {
-    border: 2px solid black;
+    background-color: #3f51b5; /* Azul principal */
+    color: white;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    border-radius: 4px;
 }
 
 .logo {
@@ -31,83 +34,104 @@ header {
     font-size: 1.2rem;
 }
 
-/* Navegador secundario */
+/* Navegador secundario (Azul claro) */
 .navegador-secundario {
-    border: 2px solid black;
+    background-color: #e0e7ff; 
+    border: 1px solid #c5cae9;
     margin: 0 10px 10px 10px;
     padding: 10px;
     text-align: center;
+    border-radius: 4px;
 }
 
 .navegador-secundario a {
     margin: 0 15px;
     text-decoration: none;
-    color: blue;
+    color: #3f51b5;
+    font-weight: bold;
 }
 
 /* ================================================= */
-/* 3. BLOQUE CENTRAL (EL CUERPO DEL ESQUEMA) */
+/* 3. BLOQUE CENTRAL (LAYOUT DE TU ESQUEMA) */
 /* ================================================= */
 main {
-    display: flex; /* Esto pone el ASIDE y el SECTION uno al lado del otro */
+    display: flex;
     flex: 1;
     margin: 0 10px;
     gap: 10px;
 }
 
-/* Barra Lateral Izquierda */
+/* Barra Lateral Izquierda (Proyectos) */
 aside {
-    flex: 0 0 250px; /* Ancho fijo para la barra lateral */
-    border: 2px solid black;
+    flex: 0 0 250px;
+    background-color: white;
+    border: 2px solid #3f51b5; /* Borde azul para definir la estructura */
     display: flex;
     flex-direction: column;
+    border-radius: 4px;
 }
 
 .proyecto-item {
     padding: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #eee;
     text-decoration: none;
-    color: black;
+    color: #333;
     text-align: center;
     display: block;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.proyecto-item:hover {
-    background-color: #f0f0f0;
+/* Efecto al pasar el ratón por los botones */
+a.proyecto-item:hover {
+    background-color: #e8eaf6;
+    color: #3f51b5;
 }
 
-/* Área de Contenido Derecha */
+/* Área de Contenido Derecha (Imágenes) */
 section {
-    flex: 1; /* Ocupa todo el espacio restante */
-    border: 2px solid black;
+    flex: 1;
+    background-color: white;
+    border: 2px solid #3f51b5;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px;
+    border-radius: 4px;
 }
 
 .contenedor-imagen {
     flex: 1;
-    border: 1px solid gray;
+    border: 1px dashed #3f51b5;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: black;
-    background-color: #fafafa;
+    color: #3f51b5;
+    background-color: #f9f9ff;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.contenedor-imagen:hover {
+    background-color: #e0e7ff;
+    transform: scale(1.01);
 }
 
 /* ================================================= */
-/* 4. PIE DE PÁGINA (COPYRIGHT / CONTACTO) */
+/* 4. PIE DE PÁGINA (OSCURO) */
 /* ================================================= */
 footer {
-    border: 2px solid black;
+    background-color: #333;
+    color: white;
     margin: 10px;
     padding: 20px;
     text-align: center;
+    border-radius: 4px;
 }
 
 footer a {
-    color: blue;
+    color: #ffd700; /* Dorado/Amarillo para que resalte en el fondo oscuro */
+    text-decoration: none;
     font-weight: bold;
 }
