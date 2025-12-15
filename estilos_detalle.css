@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedores para centrar el contenido */
+.titulo-proyecto, .navegador-secundario, .detalle-main, footer {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Banda 1: Título */
+.titulo-proyecto {
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Banda 2: Navegador */
+.navegador-secundario {
+    background-color: #e0e7ff;
+    padding: 10px 0;
+    border-bottom: 1px solid #c5cae9;
+}
+
+.navegador-secundario ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.navegador-secundario li { margin: 0 15px; }
+
+.navegador-secundario a {
+    text-decoration: none;
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+/* Cuerpo Central: 2 Columnas */
+.detalle-main {
+    display: flex;
+    flex-grow: 1;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.link-navegador {
+    flex: 0 0 180px; /* Ancho fijo para la barra lateral */
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+}
+
+.informacion-detalle {
+    flex-grow: 1; /* Ocupa el resto del espacio */
+    padding: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
