@@ -75,3 +75,45 @@ footer {
     padding: 15px;
     margin-top: auto;
 }
+/* --- ESTILOS PARA EL JUEGO TETRIS --- */
+
+.contenedor-juego {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el juego horizontalmente */
+    justify-content: center;
+    background-color: #ffffff; /* Fondo blanco para que resalte */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#juegoCanvas {
+    background-color: #1a1a1a; /* Fondo casi negro para las piezas */
+    border: 5px solid #3f51b5; /* Borde azul a juego con tu header */
+    border-radius: 4px;
+    display: block;
+    /* Esto ayuda a que el juego no se vea gigante en pantallas pequeñas */
+    max-width: 100%;
+    height: auto;
+}
+
+.controles-info {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e8eaf6; /* Azul muy clarito */
+    border-radius: 8px;
+    color: #3f51b5;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Efecto para que el Canvas parezca una pantalla de recreativa */
+#juegoCanvas:hover {
+    box-shadow: 0 0 15px rgba(63, 81, 181, 0.5);
+    transition: box-shadow 0.3s ease;
+}
