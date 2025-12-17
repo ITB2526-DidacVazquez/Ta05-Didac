@@ -257,3 +257,19 @@ footer a {
 .contenedor-imagen:hover .img-proyecto {
     transform: scale(1.05); /* Pequeño zoom al pasar el ratón */
 }
+/* Los proyectos que aún no existen se ven más sutiles */
+.proyecto-item.proximo {
+    color: #999;
+    border-left: 3px solid #ccc;
+    background-color: #fafafa;
+    cursor: default;
+}
+
+/* El buscador destacado */
+#inputBusqueda {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png'); /* Icono lupa opcional */
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+}
