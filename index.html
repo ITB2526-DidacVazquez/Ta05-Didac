@@ -43,15 +43,49 @@
     </nav>
 
     <main>
-        <aside>
-            <a href="proyecto1.html" class="proyecto-item">Proyecto 1 (Clicar y ver)</a>
-            <a href="proyecto2.html" class="proyecto-item">Proyecto 2 (Clicar y ver)</a>
-            
-            <div class="proyecto-item">Proyecto 3 (Próximamente)</div>
-            <div class="proyecto-item">Proyecto 4 (Próximamente)</div>
-            <div class="proyecto-item">Proyecto 5 (Próximamente)</div>
-            <div class="proyecto-item">Proyecto 6 (Próximamente)</div>
-        </aside>
+       <aside id="listaProyectos">
+    <div class="buscador-contenedor">
+        <input type="text" id="inputBusqueda" placeholder="Escribe para buscar proyectos..." onkeyup="filtrarProyectos()">
+    </div>
+    
+    <a href="proyecto1.html" class="proyecto-item activo">Proyecto 1 (Tetris)</a>
+    <a href="proyecto2.html" class="proyecto-item activo">Proyecto 2 (Partículas)</a>
+    
+    <div class="proyecto-item proximo">Proyecto 3 (Próximamente)</div>
+    <div class="proyecto-item proximo">Proyecto 4 (Próximamente)</div>
+    <div class="proyecto-item proximo">Proyecto 5 (Próximamente)</div>
+    <div class="proyecto-item proximo">Proyecto 30 (Próximamente)</div>
+</aside>
+
+<script>
+function filtrarProyectos() {
+    let input = document.getElementById('inputBusqueda').value.toLowerCase();
+    let items = document.querySelectorAll('.proyecto-item');
+
+    items.forEach(item => {
+        // Si el buscador está vacío
+        if (input === "") {
+            // Solo mostramos los que tienen la clase 'activo'
+            if (item.classList.contains('activo')) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        } 
+        // Si el usuario está escribiendo
+        else {
+            if (item.textContent.toLowerCase().includes(input)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    });
+}
+
+// Llamamos a la función al cargar para que oculte los próximos de inicio
+window.onload = filtrarProyectos;
+</script>
 
         <section>
     <a href="proyecto1.html" class="contenedor-imagen">
