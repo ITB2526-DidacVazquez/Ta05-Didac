@@ -52,7 +52,7 @@ header {
 }
 
 /* ================================================= */
-/* 3. BLOQUE CENTRAL (LAYOUT) */
+/* 3. BLOQUE CENTRAL (LAYOUT PRINCIPAL) */
 /* ================================================= */
 main {
     display: flex;
@@ -61,7 +61,7 @@ main {
     gap: 10px;
 }
 
-/* Sidebar Izquierda */
+/* Sidebar Izquierda con Buscador */
 aside {
     flex: 0 0 250px;
     background-color: white;
@@ -73,7 +73,6 @@ aside {
     overflow-y: auto;
 }
 
-/* Buscador dentro del Aside */
 #inputBusqueda {
     width: 90%;
     margin: 10px auto;
@@ -108,25 +107,27 @@ aside {
     cursor: default;
 }
 
-/* Área de Contenido Derecha (Galería) */
+/* ================================================= */
+/* 4. GALERÍA DE PROYECTOS (SECCIÓN DERECHA) */
+/* ================================================= */
 section {
     flex: 1;
     background-color: white;
     border: 2px solid #3f51b5;
     padding: 20px;
     border-radius: 4px;
-    /* AJUSTE: Imágenes pequeñas y en cuadrícula */
+    
+    /* CONFIGURACIÓN PARA 50% Y 50% */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Divide el espacio en dos columnas exactas */
     gap: 20px;
     align-content: start;
 }
 
-/* Contenedor de la miniatura */
 .contenedor-imagen {
     display: block;
     position: relative;
-    height: 180px; /* Tamaño reducido */
+    height: 350px; /* Altura aumentada para que se vea mejor al ser más anchas */
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
@@ -137,13 +138,13 @@ section {
 .img-proyecto {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.3s ease;
+    object-fit: cover; /* La imagen rellena todo el espacio sin deformarse */
+    object-position: center;
+    transition: transform 0.4s ease;
 }
 
 .contenedor-imagen:hover .img-proyecto {
-    transform: scale(1.1);
+    transform: scale(1.08); /* Efecto de zoom suave */
 }
 
 .info-overlay {
@@ -152,13 +153,13 @@ section {
     background: rgba(63, 81, 181, 0.9);
     color: white;
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     text-align: center;
-    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 /* ================================================= */
-/* 4. LOADER Y FOOTER */
+/* 5. ELEMENTOS ADICIONALES (LOADER Y FOOTER) */
 /* ================================================= */
 #loader {
     position: fixed;
@@ -194,3 +195,13 @@ footer {
 }
 
 footer a { color: #ffd700; text-decoration: none; font-weight: bold; }
+
+/* RESPONSIVIDAD: En pantallas pequeñas se ponen una debajo de otra */
+@media (max-width: 800px) {
+    section {
+        grid-template-columns: 1fr;
+    }
+    .contenedor-imagen {
+        height: 250px;
+    }
+}
