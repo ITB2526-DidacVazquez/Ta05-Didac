@@ -12,13 +12,13 @@
     <header class="titulo-proyecto">
         <h1>Proyecto 2: Innovación y Diseño</h1>
     </header>
-<div id="google_translate_element"></div>
+
+    <div id="google_translate_element"></div>
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'es', 
-                // Aquí están todos los idiomas que pediste:
                 includedLanguages: 'en,ca,gl,it,de,zh-CN,ja,ru,ar', 
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
@@ -27,7 +27,7 @@
     </script>
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+
     <nav class="navegador-secundario">
         <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -46,8 +46,89 @@
         </aside>
 
         <section class="informacion-detalle">
-            <h2>Información del Proyecto 2</h2>
-            <p>Aquí puedes incluir los detalles específicos del segundo proyecto. Al compartir el mismo CSS, mantendrá la coherencia visual con el resto de tu sitio web.</p>
+            <h2>Laboratorio de Partículas</h2>
+            <p>Mueve el ratón sobre el cuadro negro para crear constelaciones digitales. Este experimento demuestra el uso de física de partículas y vectores en tiempo real.</p>
+            
+            <div style="background: #000; border-radius: 15px; overflow: hidden; position: relative; cursor: crosshair;">
+                <canvas id="particleCanvas" style="display: block; width: 100%; height: 400px;"></canvas>
+            </div>
+
+            <script>
+                const canvas = document.getElementById('particleCanvas');
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+
+                // Ajustar tamaño
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+
+                const mouse = { x: null, y: null };
+
+                canvas.addEventListener('mousemove', (e) => {
+                    const rect = canvas.getBoundingClientRect();
+                    mouse.x = e.clientX - rect.left;
+                    mouse.y = e.clientY - rect.top;
+                    // Crear partículas al mover
+                    for(let i=0; i<3; i++) particles.push(new Particle());
+                });
+
+                class Particle {
+                    constructor() {
+                        this.x = mouse.x;
+                        this.y = mouse.y;
+                        this.size = Math.random() * 5 + 1;
+                        this.speedX = Math.random() * 3 - 1.5;
+                        this.speedY = Math.random() * 3 - 1.5;
+                        this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                    }
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+                        if (this.size > 0.1) this.size -= 0.05;
+                    }
+                    draw() {
+                        ctx.fillStyle = this.color;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                function handleParticles() {
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
+                        // Conectar líneas entre puntos cercanos
+                        for (let j = i; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            if (distance < 80) {
+                                ctx.beginPath();
+                                ctx.strokeStyle = particles[i].color;
+                                ctx.lineWidth = 0.2;
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.stroke();
+                            }
+                        }
+                        if (particles[i].size <= 0.2) {
+                            particles.splice(i, 1);
+                            i--;
+                        }
+                    }
+                }
+
+                function animate() {
+                    ctx.fillStyle = 'rgba(0,0,0,0.1)'; // Efecto de estela
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    handleParticles();
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            </script>
+            
+            <p style="margin-top: 15px;">Este tipo de innovaciones son ideales para fondos dinámicos o interfaces de usuario interactivas.</p>
         </section>
 
     </main>
@@ -55,6 +136,6 @@
     <footer>
         <p>Copyright © 2025. Todos los derechos reservados.</p>
     </footer>
-<script src="traduccion.js"></script>
+    <script src="traduccion.js"></script>
 </body>
 </html>
