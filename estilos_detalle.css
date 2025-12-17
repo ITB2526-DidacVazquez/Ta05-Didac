@@ -117,3 +117,31 @@ footer {
     box-shadow: 0 0 15px rgba(63, 81, 181, 0.5);
     transition: box-shadow 0.3s ease;
 }
+/* --- ESTILOS PARA EL LABORATORIO DE PARTÍCULAS (PROYECTO 2) --- */
+
+/* Contenedor negro donde ocurre la magia */
+.informacion-detalle div {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+    border: 2px solid #3f51b5; /* Borde azul para seguir tu estética */
+    margin: 20px 0;
+}
+
+#particleCanvas {
+    display: block;
+    cursor: crosshair; /* Cambia el ratón a una cruz para invitar a jugar */
+    background: #000;
+}
+
+/* Ajuste de texto para la descripción del experimento */
+.informacion-detalle h2 {
+    color: #3f51b5;
+    border-bottom: 2px solid #e8eaf6;
+    padding-bottom: 10px;
+}
+
+/* Responsividad: Asegura que en móviles el canvas no sea demasiado alto */
+@media (max-width: 768px) {
+    #particleCanvas {
+        height: 250px !important; /* Más pequeño en móviles */
+    }
+}
