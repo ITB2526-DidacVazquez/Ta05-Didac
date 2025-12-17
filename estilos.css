@@ -180,3 +180,32 @@ footer a {
     opacity: 0;
     visibility: hidden;
 }
+/* Para que la imagen ocupe todo el espacio sin deformarse */
+.img-proyecto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que llene el cuadro */
+    border-radius: 4px;
+}
+
+/* Un efecto de texto encima de la imagen */
+.contenedor-imagen {
+    position: relative; /* Necesario para el overlay */
+    overflow: hidden;
+}
+
+.info-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(63, 81, 181, 0.8); /* Azul con transparencia */
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* El texto sube cuando pasas el ratón */
+.contenedor-imagen:hover .info-overlay {
+    background: #3f51b5;
+}
