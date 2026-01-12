@@ -2,54 +2,45 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contacto</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/estilos.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html">Inicio</a> |
-      <a href="proyecto1.html">Proyecto 1</a> |
-      <a href="proyecto2.html">Proyecto 2</a>
+      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="container">
+    <div class="hero-inner">
       <h1>Contacto</h1>
-      <p class="lead">Ponte en contacto conmigo para colaborar, preguntar o solicitar más información sobre los proyectos.</p>
+      <p class="subtitle">Ponte en contacto conmigo para hablar sobre los proyectos.</p>
       <div class="cta-group">
-        <a class="btn" href="index.html">Inicio</a>
-        <a class="btn" href="proyecto1.html">Proyecto 1</a>
-        <a class="btn" href="proyecto2.html">Proyecto 2</a>
+        <a class="btn btn-primary futurista-cta" href="/index.html">Volver al índice</a>
+        <a class="btn btn-secondary futurista-cta" href="#formulario">Enviar mensaje</a>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="contact-form">
-      <!-- Contenido del formulario de contacto -->
-      <p>Formulario de contacto aquí (mantener la implementación existente si la hay).</p>
+    <section id="formulario" class="contact-form">
+      <h2>Envía un mensaje</h2>
+      <form>
+        <label>Nombre<br><input type="text" name="nombre"></label>
+        <label>Email<br><input type="email" name="email"></label>
+        <label>Mensaje<br><textarea name="mensaje"></textarea></label>
+        <button class="btn btn-primary futurista-cta" type="submit">Enviar</button>
+      </form>
     </section>
   </main>
 
-  <script src="js/futurista.js"></script>
-  <script>
-    // Smooth-scroll handler for same-page anchors
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-          var targetId = this.getAttribute('href');
-          var target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-            history.pushState(null, null, targetId);
-          }
-        });
-      });
-    });
-  </script>
+  <footer>
+    <p>&copy; DidacVazquez - Ta05</p>
+  </footer>
+
+  <script src="/futurista.js"></script>
+  <script src="/smooth-links.js"></script>
 </body>
 </html>

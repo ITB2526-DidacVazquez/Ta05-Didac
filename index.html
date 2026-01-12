@@ -1,85 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice de Proyectos</title>
-    <link rel="icon" type="image/png" href="Ferocactus-Wizlini.png">
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ta05 - Índice de proyectos</title>
+  <link rel="stylesheet" href="/estilos.css">
 </head>
 <body>
-    <!-- Animated background canvas -->
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header>
+    <nav>
+      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+  </header>
 
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>Cargando Proyectos...</p>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Bienvenido al portafolio futurista</h1>
+      <p class="subtitle">Explora los proyectos — navegación coherente y estética futurista aplicada a todas las páginas.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary futurista-cta" href="/proyecto1.html">Ver Proyecto 1</a>
+        <a class="btn btn-secondary futurista-cta" href="/proyecto2.html">Ver Proyecto 2</a>
+      </div>
     </div>
+  </section>
 
-    <header class="contenedor-principal">
-        <div class="logo">
-            <img src="mi-logo.png" alt="Logo de mi Portafolio" class="img-logo">
-        </div>
-        <div id="google_translate_element" aria-hidden="false"></div>
-    </header>
+  <main>
+    <section class="projects">
+      <h2>Proyectos</h2>
+      <ul class="project-list">
+        <!-- Expandido a 30 proyectos -->
+        <li><a href="/proyecto1.html">Proyecto 1</a></li>
+        <li><a href="/proyecto2.html">Proyecto 2</a></li>
+        <li><a href="/proyecto3.html">Proyecto 3</a></li>
+        <li><a href="/proyecto4.html">Proyecto 4</a></li>
+        <li><a href="/proyecto5.html">Proyecto 5</a></li>
+        <li><a href="/proyecto6.html">Proyecto 6</a></li>
+        <li><a href="/proyecto7.html">Proyecto 7</a></li>
+        <li><a href="/proyecto8.html">Proyecto 8</a></li>
+        <li><a href="/proyecto9.html">Proyecto 9</a></li>
+        <li><a href="/proyecto10.html">Proyecto 10</a></li>
+        <li><a href="/proyecto11.html">Proyecto 11</a></li>
+        <li><a href="/proyecto12.html">Proyecto 12</a></li>
+        <li><a href="/proyecto13.html">Proyecto 13</a></li>
+        <li><a href="/proyecto14.html">Proyecto 14</a></li>
+        <li><a href="/proyecto15.html">Proyecto 15</a></li>
+        <li><a href="/proyecto16.html">Proyecto 16</a></li>
+        <li><a href="/proyecto17.html">Proyecto 17</a></li>
+        <li><a href="/proyecto18.html">Proyecto 18</a></li>
+        <li><a href="/proyecto19.html">Proyecto 19</a></li>
+        <li><a href="/proyecto20.html">Proyecto 20</a></li>
+        <li><a href="/proyecto21.html">Proyecto 21</a></li>
+        <li><a href="/proyecto22.html">Proyecto 22</a></li>
+        <li><a href="/proyecto23.html">Proyecto 23</a></li>
+        <li><a href="/proyecto24.html">Proyecto 24</a></li>
+        <li><a href="/proyecto25.html">Proyecto 25</a></li>
+        <li><a href="/proyecto26.html">Proyecto 26</a></li>
+        <li><a href="/proyecto27.html">Proyecto 27</a></li>
+        <li><a href="/proyecto28.html">Proyecto 28</a></li>
+        <li><a href="/proyecto29.html">Proyecto 29</a></li>
+        <li><a href="/proyecto30.html">Proyecto 30</a></li>
+      </ul>
+    </section>
+  </main>
 
-    <main>
-        <section class="hero" role="region" aria-label="Presentación">
-            <h1 class="main-title">Mi Portfolio: Dídac Vázquez Gayoso</h1>
-            <p class="hero-sub">Explora una colección de proyectos interactivos — juegos, experimentos con partículas y prototipos creativos.</p>
-            <div class="hero-cta-container">
-                <a href="proyecto1.html" class="hero-cta" aria-label="Ver proyecto destacado">Ver proyecto destacado</a>
-                <a href="proyecto2.html" class="hero-cta secondary" aria-label="Ver laboratorio de partículas">Ir a laboratorio de partículas</a>
-            </div>
-        </section>
+  <footer>
+    <p>&copy; DidacVazquez - Ta05</p>
+  </footer>
 
-        <nav class="navegador-secundario" role="navigation" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <aside id="listaProyectos" class="sidebar">
-            <div class="buscador-contenedor">
-                <input type="text" id="inputBusqueda" placeholder="Escribe para buscar proyectos..." onkeyup="filtrarProyectos()" aria-label="Buscar proyectos">
-            </div>
-
-            <a href="proyecto1.html" class="proyecto-item activo">Proyecto 1 (Tetris)</a>
-            <a href="proyecto2.html" class="proyecto-item activo">Proyecto 2 (Partículas)</a>
-
-            <div class="proyecto-item proximo">Proyecto 3 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 4 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 5 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 6 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 7 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 8 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 9 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 10 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 11 (Próximamente)</div>
-            <div class="proyecto-item proximo">Proyecto 12 (Próximamente)</div>
-        </aside>
-
-        <section class="galeria" aria-live="polite">
-            <p class="intro">Bienvenido a mi índice de proyectos. Haz clic en cualquiera de los elementos de la izquierda para ver los detalles.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>Copyright © 2025. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="script_indice.js"></script>
-    <script src="futurista.js"></script>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', 
-                includedLanguages: 'en,ca,gl,it,de,zh-CN,ja,ru,ar', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="/futurista.js"></script>
+  <script src="/smooth-links.js"></script>
 </body>
 </html>

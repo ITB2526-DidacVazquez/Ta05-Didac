@@ -1,59 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles - Proyecto 1</title>
-    <link rel="icon" type="image/png" href="Ferocactus-Wizlini.png">
-    <link rel="stylesheet" href="estilos_detalle.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Proyecto 1</title>
+  <link rel="stylesheet" href="/estilos.css">
+  <link rel="stylesheet" href="/estilos_detalle.css">
 </head>
 <body>
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
-
-    <header class="titulo-proyecto">
-        <h1>Proyecto 1: Mi Primer Trabajo (Tetris)</h1>
-    </header>
-
-    <div id="google_translate_element" style="padding: 10px; text-align: center;"></div>
-
-    <nav class="navegador-secundario">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-        </ul>
+  <header>
+    <nav>
+      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
     </nav>
+  </header>
 
-    <main class="detalle-main">
-        <aside class="link-navegador">
-            <nav>
-                <a href="proyecto2.html" class="boton-cyber">
-                    <span class="boton-texto">PROYECTO 2</span>
-                    <span class="boton-glitch"></span>
-                    <span class="boton-icono">🚀</span>
-                </a>
-                <div class="bloque-vacio"></div>
-            </nav>
-        </aside>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Proyecto 1</h1>
+      <p class="subtitle">Descripción breve del Proyecto 1 con estética futurista.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary futurista-cta" href="/proyecto1.html">Abrir</a>
+        <a class="btn btn-secondary futurista-cta" href="/index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
 
-        <section class="informacion-detalle">
-            <h2>Información del Proyecto</h2>
-            <p>A continuación puedes probar el prototipo de juego desarrollado para este proyecto:</p>
+  <main>
+    <article>
+      <h2>Detalle del proyecto 1</h2>
+      <p>Contenido del proyecto 1 (placeholder).</p>
+    </article>
+  </main>
 
-            <div class="contenedor-juego">
-                <canvas id="juegoCanvas" width="300" height="600" aria-label="Canvas del juego Tetris"></canvas>
-                <div class="controles-info">
-                    <p>🕹️ <b>Controles:</b> Flechas Laterales (Mover) | Flecha Arriba (Rotar) | Flecha Abajo (Caer rápido)</p>
-                </div>
-            </div>
+  <footer>
+    <p>&copy; DidacVazquez - Ta05</p>
+  </footer>
 
-            <p>Este Tetris ha sido programado íntegramente en JavaScript utilizando el elemento Canvas de HTML5. El código gestiona colisiones por matrices, rotaciones de piezas y eliminación de líneas completas.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>Copyright © 2025. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="juego.js"></script>
-    <script src="futurista.js"></script>
+  <script src="/futurista.js"></script>
+  <script src="/smooth-links.js"></script>
 </body>
 </html>
