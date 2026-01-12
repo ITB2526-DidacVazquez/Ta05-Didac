@@ -23,14 +23,21 @@
         <div id="google_translate_element" aria-hidden="false"></div>
     </header>
 
-    <h1 class="main-title">Mi Portfolio: Dídac Vázquez Gayoso</h1>
-
-    <nav class="navegador-secundario" role="navigation" aria-label="Navegación principal">
-        <a href="index.html">Inicio</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-
     <main>
+        <section class="hero" role="region" aria-label="Presentación">
+            <h1 class="main-title">Mi Portfolio: Dídac Vázquez Gayoso</h1>
+            <p class="hero-sub">Explora una colección de proyectos interactivos — juegos, experimentos con partículas y prototipos creativos.</p>
+            <div class="hero-cta-container">
+                <a href="proyecto1.html" class="hero-cta" aria-label="Ver proyecto destacado">Ver proyecto destacado</a>
+                <a href="proyecto2.html" class="hero-cta secondary" aria-label="Ver laboratorio de partículas">Ir a laboratorio de partículas</a>
+            </div>
+        </section>
+
+        <nav class="navegador-secundario" role="navigation" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
         <aside id="listaProyectos" class="sidebar">
             <div class="buscador-contenedor">
                 <input type="text" id="inputBusqueda" placeholder="Escribe para buscar proyectos..." onkeyup="filtrarProyectos()" aria-label="Buscar proyectos">
@@ -51,9 +58,8 @@
             <div class="proyecto-item proximo">Proyecto 12 (Próximamente)</div>
         </aside>
 
-        <section class="galeria">
+        <section class="galeria" aria-live="polite">
             <p class="intro">Bienvenido a mi índice de proyectos. Haz clic en cualquiera de los elementos de la izquierda para ver los detalles.</p>
-            <!-- Aquí pueden aparecer tarjetas o contenido dinámico en el futuro -->
         </section>
     </main>
 
