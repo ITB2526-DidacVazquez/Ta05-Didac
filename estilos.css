@@ -285,3 +285,47 @@ footer {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+/* --- ESTILOS DEL TRADUCTOR CIBERADMIN --- */
+
+/* Ocultar la barra superior de Google */
+body { top: 0 !important; }
+.goog-te-banner-frame { display: none !important; }
+
+/* Contenedor */
+.translator-box {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+/* Ocultar logo de Google y texto 'Seleccionar idioma' */
+.goog-logo-link, .goog-te-gadget span { display: none !important; }
+.goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+
+/* Estilo del desplegable */
+.goog-te-combo {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #00f2ff !important; /* Color Cyan */
+    border: 1px solid #333 !important;
+    border-radius: 5px !important;
+    padding: 5px !important;
+    font-family: 'Poppins', sans-serif !important;
+    outline: none !important;
+    cursor: pointer !important;
+}
+
+/* Hover del desplegable */
+.goog-te-combo:hover {
+    border-color: #00f2ff !important;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3) !important;
+}
+
+/* Opciones internas */
+.goog-te-combo option {
+    background-color: #050510 !important;
+    color: #fff !important;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .translator-box { margin: 10px 0; width: 100%; text-align: center; }
+}
