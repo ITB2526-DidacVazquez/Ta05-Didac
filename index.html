@@ -52,9 +52,9 @@
         <h2 style="margin-bottom: 15px; color: white; font-family: 'Orbitron'; border-top: 1px solid #333; padding-top: 20px;">ARCHIVO DE DATOS</h2>
         
         <div id="projects-container" class="projects-list-grid">
-            <a href="proyecto3.html" class="mini-card">Proyecto 3</a>
-            <a href="proyecto4.html" class="mini-card">Proyecto 4</a>
-            <a href="proyecto5.html" class="mini-card">Proyecto 5</a>
+            <a href="index.html" class="mini-card">Proyecto 3</a>
+            <a href="index.html" class="mini-card">Proyecto 4</a>
+            <a href="index.html" class="mini-card">Proyecto 5</a>
         </div>
     </main>
 
@@ -84,11 +84,11 @@
 
         // 3. Generador automático de proyectos
         const container = document.getElementById('projects-container');
-        for(let i = 6; i <= 30; i++) {
+        for(let i = 3; i <= 30; i++) {
             const link = document.createElement('a');
-            link.href = `proyecto${i}.html`;
+            link.href = index.html;
             link.className = 'mini-card';
-            link.innerHTML = `<strong>PROYECTO ${i}</strong><span style="font-size:0.7em; color:#666">Acceso Restringido</span>`;
+            link.innerHTML = `<strong>PROYECTO ${i}</strong><span style="font-size:0.7em; color:#666">Próximamente</span>`;
             container.appendChild(link);
         }
 
