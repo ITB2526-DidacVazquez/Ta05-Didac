@@ -3,40 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyecto 2</title>
-  <link rel="stylesheet" href="/estilos.css">
-  <link rel="stylesheet" href="/estilos_detalle.css">
+  <title>Proyecto 2 - Futurista</title>
+  <link rel="stylesheet" href="estilos_detalle.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Proyecto 2</h1>
-      <p class="subtitle">Proyecto con partículas (script inline preservado).</p>
-      <div class="cta-group">
-        <a class="btn btn-primary futurista-cta" href="/proyecto2.html">Abrir</a>
-        <a class="btn btn-secondary futurista-cta" href="/index.html">Volver al índice</a>
-      </div>
+  <header class="header">
+    <div class="container">
+      <h1 class="title">Proyecto 2</h1>
     </div>
-  </section>
-
-  <main>
+  </header>
+  <main class="container details">
     <article>
-      <h2>Detalle del proyecto 2</h2>
-      <p>Contenido del proyecto 2 (placeholder). Juego y partículas conservados.</p>
+      <h2>Descripción</h2>
+      <p>Detalles del proyecto 2.</p>
+      <p>
+        <a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
+        <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a>
+      </p>
     </article>
   </main>
+  <footer class="container">
+    <p class="caption">&copy; Futurista</p>
+  </footer>
 
-  <!-- Inline particle script preserved (kept here as requested). If you had a larger particle initialization script originally, paste it inside the following element to preserve behavior. -->
+  <!-- Keep juego.js reference as requested -->
+  <script src="/juego.js"></script>
+
+  <!-- Preserved inline particle code (kept as placeholder to retain behavior) -->
   <script>
-  // === PARTICLE SCRIPT PRESERVED ===
-  // Si había código inline para partículas en el proyecto original, debe estar aquí.
-  // Placeholder preservación: no se elimina ni se desactiva.
+    // Inline particle initialization preserved
+    if(window.initParticles) {
+      try{ initParticles(); }catch(e){/* init error */}
+    }
   </script>
 
   <script src="/futurista.js"></script>

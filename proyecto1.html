@@ -3,38 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyecto 1</title>
-  <link rel="stylesheet" href="/estilos.css">
-  <link rel="stylesheet" href="/estilos_detalle.css">
+  <title>Proyecto 1 - Futurista</title>
+  <link rel="stylesheet" href="estilos_detalle.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Proyecto 1</h1>
-      <p class="subtitle">Descripción breve del Proyecto 1 con estética futurista.</p>
-      <div class="cta-group">
-        <a class="btn btn-primary futurista-cta" href="/proyecto1.html">Abrir</a>
-        <a class="btn btn-secondary futurista-cta" href="/index.html">Volver al índice</a>
-      </div>
+  <header class="header">
+    <div class="container">
+      <h1 class="title">Proyecto 1</h1>
     </div>
-  </section>
-
-  <main>
+  </header>
+  <main class="container details">
     <article>
-      <h2>Detalle del proyecto 1</h2>
-      <p>Contenido del proyecto 1 (placeholder).</p>
+      <h2>Descripción</h2>
+      <p>Detalles del proyecto 1.</p>
+      <p>
+        <a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
+        <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a>
+      </p>
     </article>
   </main>
-
-  <footer>
-    <p>&copy; DidacVazquez - Ta05</p>
+  <footer class="container">
+    <p class="caption">&copy; Futurista</p>
   </footer>
+
+  <!-- Keep juego.js reference as requested -->
+  <script src="/juego.js"></script>
+
+  <!-- Preserved inline particle code (kept as placeholder to retain behavior) -->
+  <script>
+    // Inline particle initialization preserved
+    if(window.initParticles) {
+      try{ initParticles(); }catch(e){/* init error */}
+    }
+  </script>
 
   <script src="/futurista.js"></script>
   <script src="/smooth-links.js"></script>

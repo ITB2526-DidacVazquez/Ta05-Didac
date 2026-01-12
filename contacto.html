@@ -3,41 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contacto</title>
-  <link rel="stylesheet" href="/estilos.css">
+  <title>Contacto - Futurista</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <header>
-    <nav>
-      <a href="/index.html" class="brand">Ta05 - DidacVazquez</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
+    <div class="container">
       <h1>Contacto</h1>
-      <p class="subtitle">Ponte en contacto conmigo para hablar sobre los proyectos.</p>
-      <div class="cta-group">
-        <a class="btn btn-primary futurista-cta" href="/index.html">Volver al índice</a>
-        <a class="btn btn-secondary futurista-cta" href="#formulario">Enviar mensaje</a>
-      </div>
     </div>
-  </section>
-
-  <main>
-    <section id="formulario" class="contact-form">
-      <h2>Envía un mensaje</h2>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h2>Escríbenos</h2>
       <form>
-        <label>Nombre<br><input type="text" name="nombre"></label>
-        <label>Email<br><input type="email" name="email"></label>
-        <label>Mensaje<br><textarea name="mensaje"></textarea></label>
-        <button class="btn btn-primary futurista-cta" type="submit">Enviar</button>
+        <label>Nombre<br><input type="text" name="nombre"></label><br>
+        <label>Mensaje<br><textarea name="mensaje"></textarea></label><br>
+        <button type="submit" class="cta-primary">Enviar</button>
       </form>
+      <p style="margin-top:1rem"><a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
+      <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a></p>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; DidacVazquez - Ta05</p>
+  <footer class="container">
+    <p class="small-muted">&copy; Futurista</p>
   </footer>
 
   <script src="/futurista.js"></script>
