@@ -150,7 +150,7 @@
         <h1>PROYECTOS PRINCIPALES</h1>
         <nav class="main-nav">
             <a href="index.html" class="active">Inicio</a>
-            <a href="archivo.html">Archivo de Proyectos</a> 
+            <a href="proyectostotal.html">Archivo de Proyectos</a> 
             <a href="contacto.html">Contacto</a>
         </nav>
         
@@ -161,6 +161,7 @@
         <div class="main-interface">
             
             <div class="modules-col">
+                
                 <div class="module-card" onmouseenter="updateScreen(1)" onmouseleave="resetScreen()">
                     <h3>PROYECTO 01</h3>
                     <p>Terminal Ciberseguridad</p>
@@ -171,12 +172,13 @@
                     <p>Monitorización SIEM</p>
                 </div>
 
-                <a href="archivo.html" style="text-decoration: none;">
-                    <div class="module-card" style="border-left-color: #bc13fe;">
+                <a href="proyectostotal.html" style="text-decoration: none;">
+                    <div class="module-card" style="border-left-color: #bc13fe;" onmouseenter="updateScreen(3)" onmouseleave="resetScreen()">
                         <h3 style="color: #bc13fe;">ACCESO AL ARCHIVO</h3>
                         <p>Ver base de datos completa (3-30)</p>
                     </div>
                 </a>
+                
             </div>
 
             <div class="info-screen">
@@ -211,9 +213,13 @@
                 title: "DASHBOARD SIEM",
                 desc: "Panel de visualización de amenazas en tiempo real. Monitorización de tráfico de red mediante Canvas API y sistema de logs automatizado. Muestra alertas de intrusión y estado de firewalls.",
                 link: "proyecto2.html"
+            },
+            3: {
+                title: "REPOSITORIO CENTRAL",
+                desc: "Acceso directo a la base de datos completa.",
+                link: "proyectostotal.html"
             }
         };
-
         const screenTitle = document.getElementById('screen-title');
         const screenDesc = document.getElementById('screen-desc');
         const screenBtn = document.getElementById('screen-btn');
