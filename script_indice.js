@@ -1,8 +1,14 @@
 window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
-    
-    // Le damos un pequeño retraso de 1 segundo para que se aprecie la animación
     setTimeout(function() {
         loader.classList.add('loader-hidden');
-    }, 1000);
+    }, 900);
+
+    // Simple search filter preserving structure
+    window.filtrarProyectos = function(){
+        const q = document.getElementById('inputBusqueda').value.toLowerCase();
+        document.querySelectorAll('.proyecto-item').forEach(el=>{
+            if(el.textContent.toLowerCase().includes(q)) el.style.display='block'; else el.style.display='none';
+        })
+    }
 });

@@ -1,207 +1,32 @@
-/* ================================================= */
-/* 1. ESTRUCTURA BÁSICA Y RESET */
-/* ================================================= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Futurista global styles - responsive, glassmorphism, animated gradient background */
+:root{
+  --bg1: #0f172a;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --glass: rgba(255,255,255,0.06);
+  --muted: rgba(255,255,255,0.7);
 }
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-}
-
-/* ================================================= */
-/* 2. CABECERA Y NAVEGACIÓN */
-/* ================================================= */
-header {
-    background-color: #3f51b5;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    border-radius: 4px;
-}
-
-.img-logo {
-    max-height: 60px;
-    width: auto;
-    display: block;
-}
-
-.navegador-secundario {
-    background-color: #e0e7ff; 
-    border: 1px solid #c5cae9;
-    margin: 0 10px 10px 10px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 4px;
-}
-
-.navegador-secundario a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #3f51b5;
-    font-weight: bold;
-}
-
-/* ================================================= */
-/* 3. BLOQUE CENTRAL (LAYOUT PRINCIPAL) */
-/* ================================================= */
-main {
-    display: flex;
-    flex: 1;
-    margin: 0 10px;
-    gap: 10px;
-}
-
-/* Sidebar Izquierda con Buscador */
-aside {
-    flex: 0 0 250px;
-    background-color: white;
-    border: 2px solid #3f51b5;
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-#inputBusqueda {
-    width: 90%;
-    margin: 10px auto;
-    padding: 8px 8px 8px 35px;
-    border: 1px solid #3f51b5;
-    border-radius: 4px;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
-    background-size: 15px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-}
-
-.proyecto-item {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    text-decoration: none;
-    color: #333;
-    display: block;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.proyecto-item.activo:hover {
-    background-color: #e8eaf6;
-    color: #3f51b5;
-}
-
-.proyecto-item.proximo {
-    color: #999;
-    font-style: italic;
-    background-color: #fafafa;
-    cursor: default;
-}
-
-/* ================================================= */
-/* 4. GALERÍA DE PROYECTOS (SECCIÓN DERECHA) */
-/* ================================================= */
-section {
-    flex: 1;
-    background-color: white;
-    border: 2px solid #3f51b5;
-    padding: 20px;
-    border-radius: 4px;
-    
-    /* CONFIGURACIÓN PARA 50% Y 50% */
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide el espacio en dos columnas exactas */
-    gap: 20px;
-    align-content: start;
-}
-
-.contenedor-imagen {
-    display: block;
-    position: relative;
-    height: 350px; /* Altura aumentada para que se vea mejor al ser más anchas */
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    text-decoration: none;
-    background-color: #000;
-}
-
-.img-proyecto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* La imagen rellena todo el espacio sin deformarse */
-    object-position: center;
-    transition: transform 0.4s ease;
-}
-
-.contenedor-imagen:hover .img-proyecto {
-    transform: scale(1.08); /* Efecto de zoom suave */
-}
-
-.info-overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(63, 81, 181, 0.9);
-    color: white;
-    width: 100%;
-    padding: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* ================================================= */
-/* 5. ELEMENTOS ADICIONALES (LOADER Y FOOTER) */
-/* ================================================= */
-#loader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: #3f51b5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s, visibility 0.5s;
-}
-
-.loader-hidden { opacity: 0; visibility: hidden; }
-
-.spinner {
-    width: 50px; height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s infinite linear;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-footer {
-    background-color: #333;
-    color: white;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    border-radius: 4px;
-}
-
-footer a { color: #ffd700; text-decoration: none; font-weight: bold; }
-
-/* RESPONSIVIDAD: En pantallas pequeñas se ponen una debajo de otra */
-@media (max-width: 800px) {
-    section {
-        grid-template-columns: 1fr;
-    }
-    .contenedor-imagen {
-        height: 250px;
-    }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;}
+body{background:linear-gradient(120deg,var(--bg1),#07122b);color:var(--muted);overflow-x:hidden}
+#bgCanvas{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+#loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:60;background:rgba(3,7,18,0.6);backdrop-filter: blur(4px);transition:opacity .6s;}
+#loader.loader-hidden{opacity:0;visibility:hidden}
+.spinner{width:64px;height:64px;border-radius:50%;background:conic-gradient(var(--accent),var(--accent-2),#00f);animation:spin 1.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contenedor-principal{position:relative;z-index:10;display:flex;align-items:center;gap:16px;padding:18px;max-width:1200px;margin:20px auto}
+.img-logo{height:64px}
+.main-title{z-index:10;text-align:center;font-size:1.6rem;margin:0 auto;padding:6px 12px;color:#e6eef8;letter-spacing:0.6px}
+.navegador-secundario{z-index:10;display:flex;gap:16px;justify-content:center;padding:12px;margin:14px auto;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-radius:12px;width:calc(100% - 40px);max-width:1200px}
+.navegador-secundario a{color:var(--accent);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:all .18s}
+.navegador-secundario a:hover{background:rgba(255,255,255,0.02);box-shadow:0 6px 18px rgba(124,58,237,0.12)}
+main{display:flex;gap:18px;z-index:10;position:relative;padding:18px;max-width:1200px;margin:0 auto}
+.sidebar{flex:0 0 260px;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.04);max-height:70vh;overflow:auto}
+#inputBusqueda{width:100%;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted)}
+.proyecto-item{display:block;padding:12px;border-radius:8px;margin-top:10px;color:#dbeafe;text-decoration:none;font-weight:600;transition:all .18s}
+.proyecto-item:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(3,7,18,0.6);background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.06))}
+.proyecto-item.proximo{opacity:.6;font-style:italic}
+.galeria{flex:1;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.footer{z-index:10}
+/* Responsive */
+@media(max-width:900px){main{flex-direction:column}.sidebar{width:100%;max-height:none}}

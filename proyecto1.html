@@ -4,32 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles - Proyecto 1</title>
-    <link rel="stylesheet" href="estilos_detalle.css"> 
     <link rel="icon" type="image/png" href="Ferocactus-Wizlini.png">
-    <style>
-        /* Estilos para centrar y dar formato al área de juego */
-        .contenedor-juego {
-            text-align: center;
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        #juegoCanvas {
-            background-color: #000;
-            border: 4px solid #3f51b5;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            display: block;
-            margin: 0 auto;
-        }
-        .controles-info {
-            margin-top: 10px;
-            color: #555;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="estilos_detalle.css">
 </head>
 <body>
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
     <header class="titulo-proyecto">
         <h1>Proyecto 1: Mi Primer Trabajo (Tetris)</h1>
@@ -44,24 +23,23 @@
     </nav>
 
     <main class="detalle-main">
-        
-       <aside class="link-navegador">
-    <nav>
-        <a href="proyecto2.html" class="boton-cyber">
-            <span class="boton-texto">PROYECTO 2</span>
-            <span class="boton-glitch"></span>
-            <span class="boton-icono">🚀</span>
-        </a>
-        <div class="bloque-vacio"></div>
-    </nav>
-</aside>
+        <aside class="link-navegador">
+            <nav>
+                <a href="proyecto2.html" class="boton-cyber">
+                    <span class="boton-texto">PROYECTO 2</span>
+                    <span class="boton-glitch"></span>
+                    <span class="boton-icono">🚀</span>
+                </a>
+                <div class="bloque-vacio"></div>
+            </nav>
+        </aside>
 
         <section class="informacion-detalle">
             <h2>Información del Proyecto</h2>
             <p>A continuación puedes probar el prototipo de juego desarrollado para este proyecto:</p>
 
             <div class="contenedor-juego">
-                <canvas id="juegoCanvas" width="300" height="600"></canvas>
+                <canvas id="juegoCanvas" width="300" height="600" aria-label="Canvas del juego Tetris"></canvas>
                 <div class="controles-info">
                     <p>🕹️ <b>Controles:</b> Flechas Laterales (Mover) | Flecha Arriba (Rotar) | Flecha Abajo (Caer rápido)</p>
                 </div>
@@ -69,7 +47,6 @@
 
             <p>Este Tetris ha sido programado íntegramente en JavaScript utilizando el elemento Canvas de HTML5. El código gestiona colisiones por matrices, rotaciones de piezas y eliminación de líneas completas.</p>
         </section>
-
     </main>
 
     <footer>
@@ -77,20 +54,6 @@
     </footer>
 
     <script src="juego.js"></script>
-
-    <script src="traduccion.js"></script>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', 
-                includedLanguages: 'en,ca,gl,it,de,zh-CN,ja,ru,ar', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <script src="futurista.js"></script>
 </body>
 </html>
