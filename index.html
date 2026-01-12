@@ -32,18 +32,18 @@
         <div class="hero-grid">
             
             <a href="proyecto1.html" class="project-card-hero">
-               
+                <img src="tetris.png" alt="Tetris Preview">
                 <div class="card-overlay">
                     <h3>PROYECTO 1</h3>
-                    
+                    <p>Tetris JS con Canvas</p>
                 </div>
             </a>
 
             <a href="proyecto2.html" class="project-card-hero">
-                
+                <img src="particulas.png" alt="Particulas Preview">
                 <div class="card-overlay">
                     <h3>PROYECTO 2</h3>
-                    
+                    <p>Sistema de Partículas</p>
                 </div>
             </a>
 
@@ -51,11 +51,7 @@
 
         <h2 style="margin-bottom: 15px; color: white; font-family: 'Orbitron'; border-top: 1px solid #333; padding-top: 20px;">ARCHIVO DE DATOS</h2>
         
-        <div id="projects-container" class="projects-list-grid">
-            <a href="index.html" class="mini-card">Proyecto 3</a>
-            <a href="index.html" class="mini-card">Proyecto 4</a>
-            <a href="index.html" class="mini-card">Proyecto 5</a>
-        </div>
+        <div id="projects-container" class="projects-list-grid"></div>
     </main>
 
     <footer>
@@ -66,12 +62,11 @@
         // 1. Script de la Pantalla de Carga
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
-            // Esperamos un poco para que se vea el efecto (opcional)
             setTimeout(() => {
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
-                }, 500); // Espera a que termine la transición de opacidad
+                }, 500);
             }, 800);
         });
 
@@ -82,13 +77,20 @@
             glow.style.top = e.clientY + 'px';
         });
 
-        // 3. Generador automático de proyectos
+        // 3. Generador automático de proyectos (Del 3 al 30)
         const container = document.getElementById('projects-container');
+        
         for(let i = 3; i <= 30; i++) {
             const link = document.createElement('a');
-            link.href = index.html;
+            
+            // CORREGIDO: Enlazamos a index.html (con comillas)
+            link.href = 'index.html'; 
+            
             link.className = 'mini-card';
+            
+            // CORREGIDO: Texto "Próximamente"
             link.innerHTML = `<strong>PROYECTO ${i}</strong><span style="font-size:0.7em; color:#666">Próximamente</span>`;
+            
             container.appendChild(link);
         }
 
@@ -96,11 +98,15 @@
         const input = document.getElementById('project-search');
         input.addEventListener('keyup', function() {
             const filter = this.value.toLowerCase();
+            
+            // Buscar en destacados
             const heroes = document.querySelectorAll('.project-card-hero');
             heroes.forEach(card => {
                 const text = card.innerText.toLowerCase();
                 card.style.display = text.includes(filter) ? 'block' : 'none';
             });
+            
+            // Buscar en minis (archivo)
             const minis = document.querySelectorAll('.mini-card');
             minis.forEach(card => {
                 const text = card.innerText.toLowerCase();
