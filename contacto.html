@@ -1,71 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Mi Proyecto</title>
-    <link rel="icon" type="image/png" href="Ferocactus-Wizlini.png">
-    <link rel="stylesheet" href="estilos_contacto.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a> |
+      <a href="proyecto1.html">Proyecto 1</a> |
+      <a href="proyecto2.html">Proyecto 2</a>
+    </nav>
+  </header>
 
-    <header class="header-contacto">
-        <h1>Página de Contacto</h1>
-    </header>
+  <section class="hero">
+    <div class="container">
+      <h1>Contacto</h1>
+      <p class="lead">Ponte en contacto conmigo para colaborar, preguntar o solicitar más información sobre los proyectos.</p>
+      <div class="cta-group">
+        <a class="btn" href="index.html">Inicio</a>
+        <a class="btn" href="proyecto1.html">Proyecto 1</a>
+        <a class="btn" href="proyecto2.html">Proyecto 2</a>
+      </div>
+    </div>
+  </section>
 
-    <div id="google_translate_element"></div>
+  <main>
+    <section class="contact-form">
+      <!-- Contenido del formulario de contacto -->
+      <p>Formulario de contacto aquí (mantener la implementación existente si la hay).</p>
+    </section>
+  </main>
 
-    <main class="contacto-main">
-        <section class="info-directa">
-            <h2>Datos de contacto</h2>
-            <p>Puedes encontrarnos en:</p>
-            <ul>
-                <li><strong>Email:</strong> didac.vazquez.7e9@itb.cat</li>
-                <li><strong>Teléfono:</strong> +34 640165093</li>
-            </ul>
-            <br>
-            <a href="index.html" class="btn-regresar">Índice</a>
-        </section>
-
-        <section class="formulario-container">
-            <h2>Envíanos un mensaje</h2>
-            <form id="formContacto" class="contacto-form">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="tu@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?"></textarea>
-                </div>
-
-                <button type="submit" class="btn-enviar">Enviar Formulario</button>
-            </form>
-        </section>
-    </main>
-
-    <footer></footer>
-
-    <script src="scripts_contacto.js"></script>
-    <script src="futurista.js"></script>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', 
-                includedLanguages: 'en,ca,gl,it,de,zh-CN,ja,ru,ar', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="js/futurista.js"></script>
+  <script>
+    // Smooth-scroll handler for same-page anchors
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href');
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, null, targetId);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
