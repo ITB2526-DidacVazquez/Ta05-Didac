@@ -1,87 +1,97 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyectos - Ta05</title>
-  <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dídac Vázquez | Portfolio Cyberpunk</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="contacto.html">Contact</a>
-    </nav>
-    <h1>Proyectos</h1>
-    <div class="search-wrap">
-      <label for="project-search" class="visually-hidden">Buscar proyectos</label>
-      <input id="project-search" type="search" placeholder="Buscar proyecto (ej. proyecto10)" aria-label="Buscar proyectos">
-    </div>
-  </header>
 
-  <main>
-    <p>Selecciona uno de los proyectos abajo (1–30):</p>
-    <ul id="projects-list" class="projects-list">
-      <!-- Project links 1..30 -->
-      <li><a href="proyecto1.html">Proyecto 1 - Juego Canvas</a></li>
-      <li><a href="proyecto2.html">Proyecto 2 - Juego Click</a></li>
-      <li><a href="proyecto3.html">Proyecto 3</a></li>
-      <li><a href="proyecto4.html">Proyecto 4</a></li>
-      <li><a href="proyecto5.html">Proyecto 5</a></li>
-      <li><a href="proyecto6.html">Proyecto 6</a></li>
-      <li><a href="proyecto7.html">Proyecto 7</a></li>
-      <li><a href="proyecto8.html">Proyecto 8</a></li>
-      <li><a href="proyecto9.html">Proyecto 9</a></li>
-      <li><a href="proyecto10.html">Proyecto 10</a></li>
-      <li><a href="proyecto11.html">Proyecto 11</a></li>
-      <li><a href="proyecto12.html">Proyecto 12</a></li>
-      <li><a href="proyecto13.html">Proyecto 13</a></li>
-      <li><a href="proyecto14.html">Proyecto 14</a></li>
-      <li><a href="proyecto15.html">Proyecto 15</a></li>
-      <li><a href="proyecto16.html">Proyecto 16</a></li>
-      <li><a href="proyecto17.html">Proyecto 17</a></li>
-      <li><a href="proyecto18.html">Proyecto 18</a></li>
-      <li><a href="proyecto19.html">Proyecto 19</a></li>
-      <li><a href="proyecto20.html">Proyecto 20</a></li>
-      <li><a href="proyecto21.html">Proyecto 21</a></li>
-      <li><a href="proyecto22.html">Proyecto 22</a></li>
-      <li><a href="proyecto23.html">Proyecto 23</a></li>
-      <li><a href="proyecto24.html">Proyecto 24</a></li>
-      <li><a href="proyecto25.html">Proyecto 25</a></li>
-      <li><a href="proyecto26.html">Proyecto 26</a></li>
-      <li><a href="proyecto27.html">Proyecto 27</a></li>
-      <li><a href="proyecto28.html">Proyecto 28</a></li>
-      <li><a href="proyecto29.html">Proyecto 29</a></li>
-      <li><a href="proyecto30.html">Proyecto 30</a></li>
-    </ul>
-  </main>
+    <div id="cursor-glow"></div>
 
-  <script>
-    // Simple client-side filter for project links
-    (function(){
-      const input = document.getElementById('project-search');
-      const list = document.getElementById('projects-list');
-      const items = Array.from(list.querySelectorAll('li'));
+    <header>
+        <h1>PROYECTOS_TA05</h1>
+        <nav class="main-nav">
+            <a href="index.html">Inicio</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="search-wrap">
+            <input id="project-search" type="text" placeholder="Buscar proyecto..." autocomplete="off">
+        </div>
+    </header>
 
-      function normalize(s){ return s.trim().toLowerCase(); }
+    <main>
+        <h2 style="margin-bottom: 15px; color: white; font-family: 'Orbitron';">DESTACADOS</h2>
+        <div class="hero-grid">
+            
+            <a href="proyecto1.html" class="project-card-hero">
+                <img src="tetris.png" alt="Tetris Preview">
+                <div class="card-overlay">
+                    <h3>PROYECTO 1</h3>
+                    <p>Tetris JS con Canvas</p>
+                </div>
+            </a>
 
-      input.addEventListener('input', function(){
-        const q = normalize(this.value);
-        if(!q){
-          items.forEach(li => li.style.display='');
-          return;
-        }
-        items.forEach(li => {
-          const a = li.querySelector('a');
-          const text = normalize(a.textContent + ' ' + a.getAttribute('href'));
-          li.style.display = text.indexOf(q) !== -1 ? '' : 'none';
+            <a href="proyecto2.html" class="project-card-hero">
+                <img src="particulas.png" alt="Particulas Preview">
+                <div class="card-overlay">
+                    <h3>PROYECTO 2</h3>
+                    <p>Sistema de Partículas</p>
+                </div>
+            </a>
+
+        </div>
+
+        <h2 style="margin-bottom: 15px; color: white; font-family: 'Orbitron'; border-top: 1px solid #333; padding-top: 20px;">ARCHIVO DE DATOS</h2>
+        
+        <div id="projects-container" class="projects-list-grid">
+            <a href="proyecto3.html" class="mini-card">Proyecto 3</a>
+            <a href="proyecto4.html" class="mini-card">Proyecto 4</a>
+            <a href="proyecto5.html" class="mini-card">Proyecto 5</a>
+            </div>
+    </main>
+
+    <footer>
+        <p>SISTEMA ONLINE - 2025 DÍDAC VÁZQUEZ - TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+
+    <script>
+        // 1. Script para el Cursor
+        const glow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
         });
-      });
-    })();
-  </script>
 
-  <!-- Keep existing scripts used by the site -->
-  <script src="futurista.js"></script>
-  <script src="smooth-links.js"></script>
+        // 2. Generador automático de proyectos (del 6 al 30 para no escribir tanto)
+        // Si prefieres escribirlos a mano en el HTML, borra este bloque.
+        const container = document.getElementById('projects-container');
+        for(let i = 6; i <= 30; i++) {
+            const link = document.createElement('a');
+            link.href = `proyecto${i}.html`;
+            link.className = 'mini-card';
+            link.innerHTML = `<strong>PROYECTO ${i}</strong><span style="font-size:0.7em; color:#666">Acceso Restringido</span>`;
+            container.appendChild(link);
+        }
+
+        // 3. Buscador Inteligente
+        const input = document.getElementById('project-search');
+        input.addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            // Buscar en destacados
+            const heroes = document.querySelectorAll('.project-card-hero');
+            heroes.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(filter) ? 'block' : 'none';
+            });
+            // Buscar en minis
+            const minis = document.querySelectorAll('.mini-card');
+            minis.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(filter) ? 'flex' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
