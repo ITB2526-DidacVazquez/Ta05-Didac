@@ -1,53 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-:root{
-  --bg:#000015;
-  --neon:#00ffea; /* intensified neon */
-  --neon-2:#6bffb8;
-  --accent: linear-gradient(90deg,#00f0ff,#6bffb8);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:radial-gradient(circle at 10% 10%, rgba(0,255,234,0.06), transparent 10%),
-             radial-gradient(circle at 90% 90%, rgba(107,255,184,0.04), transparent 10%),
-             var(--bg);
-  color:#e6fff9;
-  font-family: 'Orbitron', sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-header, footer{padding:1rem}
-h1,h2,h3{color:var(--neon); text-shadow:0 0 12px rgba(0,255,234,0.35), 0 0 30px rgba(107,255,184,0.12)}
-a{color:var(--neon); text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:2rem}
-.card{background:rgba(255,255,255,0.02); border:1px solid rgba(0,255,234,0.06); padding:1.25rem; border-radius:10px; box-shadow:0 6px 30px rgba(0,255,234,0.03)}
-/* CTA styles: stronger glow, larger padding, gradient */
-.cta-primary{
-  display:inline-block;
-  padding:1rem 1.6rem;
-  border-radius:12px;
-  color:#001217;
-  background:var(--accent);
-  font-weight:700;
-  text-shadow:0 1px 0 rgba(0,0,0,0.4);
-  box-shadow:0 6px 30px rgba(0,255,234,0.28), 0 0 40px rgba(0,255,234,0.25) inset;
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-.cta-primary:hover{transform:translateY(-3px); box-shadow:0 10px 50px rgba(0,255,234,0.36),0 0 60px rgba(0,255,234,0.32) inset}
-.cta-secondary{
-  display:inline-block;
-  padding:0.9rem 1.4rem;
-  border-radius:12px;
-  color:var(--neon);
-  background:transparent;
-  border:1px solid rgba(107,255,184,0.18);
-  box-shadow:0 4px 24px rgba(107,255,184,0.08), 0 0 18px rgba(107,255,184,0.12) inset;
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-.cta-secondary:hover{transform:translateY(-2px); box-shadow:0 8px 36px rgba(107,255,184,0.18)}
-/* Buttons look neon on dark backgrounds */
-.small-muted{color:rgba(230,255,249,0.6); font-size:0.9rem}
-/* Utility neon glow */
-.neon-outline{border:1px solid rgba(0,255,234,0.12); box-shadow:0 0 14px rgba(0,255,234,0.08)}
-/* Details page tweaks */
-img{max-width:100%}
-@media (max-width:600px){.container{padding:1rem}.cta-primary,.cta-secondary{width:100%; text-align:center}}
+/* Basic site styles (updated to support search and game canvas) */
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;color:#111;background:#fff;margin:0;padding:0}
+header{padding:1rem;background:#f3f3f3;border-bottom:1px solid #e0e0e0}
+.main-nav{display:flex;gap:1rem;margin-bottom:0.5rem}
+.main-nav a{color:#0077cc;text-decoration:none}
+.main-nav a:hover{text-decoration:underline}
+h1{margin:0;font-size:1.5rem}
+.search-wrap{margin-top:0.5rem}
+#project-search{width:100%;max-width:420px;padding:0.5rem;border:1px solid #ccc;border-radius:4px}
+.projects-list{list-style:none;padding:0;margin:1rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem}
+.projects-list li{background:#fff;border:1px solid #eee;padding:0.6rem;border-radius:6px}
+.projects-list a{color:#111;text-decoration:none}
+.projects-list a:hover{text-decoration:underline}
+main{padding:1rem}
+.game-canvas{display:block;border:2px solid #222;border-radius:6px;background:#000;max-width:100%;height:auto}
+#game2-wrap{max-width:680px}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Ensure forms in contacto look decent */
+form{display:flex;flex-direction:column;gap:0.5rem;max-width:420px}
+input,textarea,button{padding:0.5rem;border:1px solid #ccc;border-radius:4px}
+button{background:#0077cc;color:#fff;border:none}
+button:hover{opacity:0.95}

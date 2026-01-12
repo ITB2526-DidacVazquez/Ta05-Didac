@@ -1,43 +1,58 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyecto 2 - Futurista</title>
-  <link rel="stylesheet" href="estilos_detalle.css">
+  <title>Proyecto 2 - Juego Click</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1 class="title">Proyecto 2</h1>
-    </div>
+  <header>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="contacto.html">Contact</a>
+    </nav>
+    <h1>Proyecto 2</h1>
+    <p>Un juego sencillo: haz clic en el cuadrado móvil para sumar puntos.</p>
   </header>
-  <main class="container details">
-    <article>
-      <h2>Descripción</h2>
-      <p>Detalles del proyecto 2.</p>
-      <p>
-        <a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
-        <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a>
-      </p>
-    </article>
+
+  <main>
+    <div id="game2-wrap">
+      <div id="box" style="width:60px;height:60px;background:#2196f3;position:relative;cursor:pointer;">&nbsp;</div>
+      <p>Puntos: <span id="score">0</span></p>
+      <p><a href="index.html">Volver a la lista de proyectos</a></p>
+    </div>
   </main>
-  <footer class="container">
-    <p class="caption">&copy; Futurista</p>
-  </footer>
 
-  <!-- Keep juego.js reference as requested -->
-  <script src="/juego.js"></script>
-
-  <!-- Preserved inline particle code (kept as placeholder to retain behavior) -->
   <script>
-    // Inline particle initialization preserved
-    if(window.initParticles) {
-      try{ initParticles(); }catch(e){/* init error */}
-    }
+    // Click-the-box game
+    (function(){
+      const box = document.getElementById('box');
+      const scoreEl = document.getElementById('score');
+      let score = 0;
+
+      function moveBox(){
+        const parentW = window.innerWidth - 80;
+        const parentH = 300; // fixed play area height
+        const x = Math.max(0, Math.floor(Math.random()*parentW));
+        const y = Math.max(0, Math.floor(Math.random()*parentH));
+        box.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      box.addEventListener('click', function(){
+        score += 1;
+        scoreEl.textContent = score;
+        // speed up movements by calling moveBox more often
+        moveBox();
+      });
+
+      // initial placement and periodic move
+      moveBox();
+      setInterval(moveBox, 1500);
+    })();
   </script>
 
-  <script src="/futurista.js"></script>
-  <script src="/smooth-links.js"></script>
+  <script src="futurista.js"></script>
+  <script src="smooth-links.js"></script>
 </body>
 </html>

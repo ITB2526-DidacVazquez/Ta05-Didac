@@ -1,43 +1,63 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyecto 1 - Futurista</title>
-  <link rel="stylesheet" href="estilos_detalle.css">
+  <title>Proyecto 1 - Juego Canvas</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1 class="title">Proyecto 1</h1>
-    </div>
+  <header>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="contacto.html">Contact</a>
+    </nav>
+    <h1>Proyecto 1</h1>
+    <p>Un juego sencillo: una bola que rebota dentro del canvas.</p>
   </header>
-  <main class="container details">
-    <article>
-      <h2>Descripción</h2>
-      <p>Detalles del proyecto 1.</p>
-      <p>
-        <a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
-        <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a>
-      </p>
-    </article>
+
+  <main>
+    <canvas class="game-canvas" id="game1" width="640" height="360" role="img" aria-label="Juego de bola que rebota"></canvas>
+    <p><a href="index.html">Volver a la lista de proyectos</a></p>
   </main>
-  <footer class="container">
-    <p class="caption">&copy; Futurista</p>
-  </footer>
 
-  <!-- Keep juego.js reference as requested -->
-  <script src="/juego.js"></script>
-
-  <!-- Preserved inline particle code (kept as placeholder to retain behavior) -->
   <script>
-    // Inline particle initialization preserved
-    if(window.initParticles) {
-      try{ initParticles(); }catch(e){/* init error */}
-    }
+    // Bouncing ball - simple game
+    (function(){
+      const canvas = document.getElementById('game1');
+      const ctx = canvas.getContext('2d');
+      let x = canvas.width/2, y = canvas.height/2;
+      let vx = 3, vy = 2;
+      const r = 12;
+
+      function step(){
+        x += vx; y += vy;
+        if(x - r < 0){ x = r; vx = -vx; }
+        if(x + r > canvas.width){ x = canvas.width - r; vx = -vx; }
+        if(y - r < 0){ y = r; vy = -vy; }
+        if(y + r > canvas.height){ y = canvas.height - r; vy = -vy; }
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        // background
+        ctx.fillStyle = '#0b0b0b';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        // ball
+        ctx.beginPath();
+        const grad = ctx.createRadialGradient(x-r/2,y-r/2,1,x,y,r*2);
+        grad.addColorStop(0,'#ffd700');
+        grad.addColorStop(1,'#ff4500');
+        ctx.fillStyle = grad;
+        ctx.arc(x,y,r,0,Math.PI*2);
+        ctx.fill();
+
+        requestAnimationFrame(step);
+      }
+
+      step();
+    })();
   </script>
 
-  <script src="/futurista.js"></script>
-  <script src="/smooth-links.js"></script>
+  <script src="futurista.js"></script>
+  <script src="smooth-links.js"></script>
 </body>
 </html>

@@ -1,33 +1,87 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Inicio - Futurista</title>
+  <title>Proyectos - Ta05</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Laboratorio Futurista</h1>
-      <p class="small-muted">Explora proyectos del laboratorio de partículas</p>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="contacto.html">Contact</a>
+    </nav>
+    <h1>Proyectos</h1>
+    <div class="search-wrap">
+      <label for="project-search" class="visually-hidden">Buscar proyectos</label>
+      <input id="project-search" type="search" placeholder="Buscar proyecto (ej. proyecto10)" aria-label="Buscar proyectos">
     </div>
   </header>
-  <main class="container">
-    <section class="card">
-      <h2>Proyecto destacado</h2>
-      <p>Resumen del proyecto destacado.</p>
-      <p>
-        <a class="cta-primary" href="proyecto1.html">Ver proyecto destacado</a>
-        <a class="cta-secondary" href="proyecto2.html">Ir al laboratorio de partículas</a>
-      </p>
-    </section>
-  </main>
-  <footer class="container">
-    <p class="small-muted">&copy; Futurista</p>
-  </footer>
 
-  <script src="/futurista.js"></script>
-  <script src="/smooth-links.js"></script>
+  <main>
+    <p>Selecciona uno de los proyectos abajo (1–30):</p>
+    <ul id="projects-list" class="projects-list">
+      <!-- Project links 1..30 -->
+      <li><a href="proyecto1.html">Proyecto 1 - Juego Canvas</a></li>
+      <li><a href="proyecto2.html">Proyecto 2 - Juego Click</a></li>
+      <li><a href="proyecto3.html">Proyecto 3</a></li>
+      <li><a href="proyecto4.html">Proyecto 4</a></li>
+      <li><a href="proyecto5.html">Proyecto 5</a></li>
+      <li><a href="proyecto6.html">Proyecto 6</a></li>
+      <li><a href="proyecto7.html">Proyecto 7</a></li>
+      <li><a href="proyecto8.html">Proyecto 8</a></li>
+      <li><a href="proyecto9.html">Proyecto 9</a></li>
+      <li><a href="proyecto10.html">Proyecto 10</a></li>
+      <li><a href="proyecto11.html">Proyecto 11</a></li>
+      <li><a href="proyecto12.html">Proyecto 12</a></li>
+      <li><a href="proyecto13.html">Proyecto 13</a></li>
+      <li><a href="proyecto14.html">Proyecto 14</a></li>
+      <li><a href="proyecto15.html">Proyecto 15</a></li>
+      <li><a href="proyecto16.html">Proyecto 16</a></li>
+      <li><a href="proyecto17.html">Proyecto 17</a></li>
+      <li><a href="proyecto18.html">Proyecto 18</a></li>
+      <li><a href="proyecto19.html">Proyecto 19</a></li>
+      <li><a href="proyecto20.html">Proyecto 20</a></li>
+      <li><a href="proyecto21.html">Proyecto 21</a></li>
+      <li><a href="proyecto22.html">Proyecto 22</a></li>
+      <li><a href="proyecto23.html">Proyecto 23</a></li>
+      <li><a href="proyecto24.html">Proyecto 24</a></li>
+      <li><a href="proyecto25.html">Proyecto 25</a></li>
+      <li><a href="proyecto26.html">Proyecto 26</a></li>
+      <li><a href="proyecto27.html">Proyecto 27</a></li>
+      <li><a href="proyecto28.html">Proyecto 28</a></li>
+      <li><a href="proyecto29.html">Proyecto 29</a></li>
+      <li><a href="proyecto30.html">Proyecto 30</a></li>
+    </ul>
+  </main>
+
+  <script>
+    // Simple client-side filter for project links
+    (function(){
+      const input = document.getElementById('project-search');
+      const list = document.getElementById('projects-list');
+      const items = Array.from(list.querySelectorAll('li'));
+
+      function normalize(s){ return s.trim().toLowerCase(); }
+
+      input.addEventListener('input', function(){
+        const q = normalize(this.value);
+        if(!q){
+          items.forEach(li => li.style.display='');
+          return;
+        }
+        items.forEach(li => {
+          const a = li.querySelector('a');
+          const text = normalize(a.textContent + ' ' + a.getAttribute('href'));
+          li.style.display = text.indexOf(q) !== -1 ? '' : 'none';
+        });
+      });
+    })();
+  </script>
+
+  <!-- Keep existing scripts used by the site -->
+  <script src="futurista.js"></script>
+  <script src="smooth-links.js"></script>
 </body>
 </html>
