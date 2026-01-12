@@ -1,63 +1,209 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Proyecto 1 - Juego Canvas</title>
+  <title>Proyecto 1 - Terminal Ciberadmin</title>
   <link rel="stylesheet" href="estilos.css">
+  
+  <style>
+    /* Estilos Específicos para la Terminal de este proyecto */
+    .terminal-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #0c0c0c;
+        border: 1px solid #333;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+        font-family: 'Courier New', monospace;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+    }
+
+    .terminal-header {
+        background: #1a1a1a;
+        padding: 5px 15px;
+        color: #ccc;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .terminal-body {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        color: #00ff41; /* Verde Hacker clásico */
+        font-size: 0.95rem;
+    }
+
+    /* Input invisible para escribir */
+    .input-line {
+        display: flex;
+        align-items: center;
+    }
+
+    .prompt {
+        color: #00f2ff; /* Cyan para el usuario */
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+
+    #cmdInput {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.95rem;
+        flex: 1;
+        outline: none;
+    }
+
+    /* Scrollbar personalizada */
+    .terminal-body::-webkit-scrollbar { width: 8px; }
+    .terminal-body::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+    /* Efecto de respuesta del sistema */
+    .response-line { margin-bottom: 5px; color: #ccc; }
+    .success { color: #00ff41; }
+    .error { color: #ff3333; }
+    .warning { color: #ffcc00; }
+  </style>
 </head>
 <body>
   <header>
+    <h1><a href="index.html" style="text-decoration:none; color:inherit;">VOLVER AL MENU</a></h1>
     <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="contacto.html">Contact</a>
+      <a href="index.html">Inicio</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
-    <h1>Proyecto 1</h1>
-    <p>Un juego sencillo: una bola que rebota dentro del canvas.</p>
   </header>
 
   <main>
-    <canvas class="game-canvas" id="game1" width="640" height="360" role="img" aria-label="Juego de bola que rebota"></canvas>
-    <p><a href="index.html">Volver a la lista de proyectos</a></p>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span>root@ciberadmin-server:~</span>
+            <span>BASH v5.1</span>
+        </div>
+        <div class="terminal-body" id="terminalOutput">
+            <div class="response-line">Inicializando sistema de auditoría...</div>
+            <div class="response-line">Conexión establecida segurizada (SSH).</div>
+            <div class="response-line">Escriba <span class="warning">'help'</span> para ver la lista de comandos disponibles.</div>
+            <br>
+            
+            <div class="input-line">
+                <span class="prompt">root@server:~$</span>
+                <input type="text" id="cmdInput" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
   </main>
 
   <script>
-    // Bouncing ball - simple game
-    (function(){
-      const canvas = document.getElementById('game1');
-      const ctx = canvas.getContext('2d');
-      let x = canvas.width/2, y = canvas.height/2;
-      let vx = 3, vy = 2;
-      const r = 12;
+    // Lógica de la Terminal Ciberadmin
+    const input = document.getElementById('cmdInput');
+    const output = document.getElementById('terminalOutput');
+    const container = document.querySelector('.input-line');
 
-      function step(){
-        x += vx; y += vy;
-        if(x - r < 0){ x = r; vx = -vx; }
-        if(x + r > canvas.width){ x = canvas.width - r; vx = -vx; }
-        if(y - r < 0){ y = r; vy = -vy; }
-        if(y + r > canvas.height){ y = canvas.height - r; vy = -vy; }
+    // Siempre mantener el foco en el input
+    document.querySelector('.terminal-body').addEventListener('click', () => input.focus());
 
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        // background
-        ctx.fillStyle = '#0b0b0b';
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        // ball
-        ctx.beginPath();
-        const grad = ctx.createRadialGradient(x-r/2,y-r/2,1,x,y,r*2);
-        grad.addColorStop(0,'#ffd700');
-        grad.addColorStop(1,'#ff4500');
-        ctx.fillStyle = grad;
-        ctx.arc(x,y,r,0,Math.PI*2);
-        ctx.fill();
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value.trim().toLowerCase();
+            
+            // 1. Añadir la línea que el usuario escribió al historial
+            printLine(`root@server:~$ ${this.value}`, 'prompt-style');
 
-        requestAnimationFrame(step);
-      }
+            // 2. Procesar el comando
+            processCommand(command);
 
-      step();
-    })();
+            // 3. Limpiar input y hacer scroll
+            this.value = '';
+            output.scrollTop = output.scrollHeight;
+        }
+    });
+
+    function printLine(text, type = '') {
+        const div = document.createElement('div');
+        div.className = 'response-line';
+        if (type === 'error') div.style.color = '#ff3333';
+        if (type === 'success') div.style.color = '#00ff41';
+        if (type === 'prompt-style') div.style.color = '#00f2ff';
+        
+        // Insertamos antes de la línea de input
+        output.insertBefore(div, container);
+        
+        // Simular escritura o imprimir directo
+        div.innerHTML = text;
+    }
+
+    function processCommand(cmd) {
+        switch(cmd) {
+            case 'help':
+                printLine("COMANDOS DISPONIBLES:", "warning");
+                printLine("- help: Muestra esta ayuda");
+                printLine("- scan: Escanea la red en busca de vulnerabilidades");
+                printLine("- whoami: Muestra el usuario actual");
+                printLine("- ping: Comprueba conectividad con Google");
+                printLine("- date: Muestra fecha y hora del sistema");
+                printLine("- clear: Limpia la pantalla");
+                break;
+
+            case 'whoami':
+                printLine("root (Privilegios de Administrador)", "success");
+                break;
+
+            case 'date':
+                printLine(new Date().toString());
+                break;
+
+            case 'clear':
+                // Borramos todo menos el input
+                while (output.firstChild && output.firstChild !== container) {
+                    output.removeChild(output.firstChild);
+                }
+                break;
+
+            case 'scan':
+                printLine("Iniciando escaneo de puertos en 192.168.1.X...", "warning");
+                setTimeout(() => printLine("[+] Puerto 80 (HTTP) - ABIERTO"), 500);
+                setTimeout(() => printLine("[+] Puerto 443 (HTTPS) - ABIERTO"), 1000);
+                setTimeout(() => printLine("[!] Puerto 22 (SSH) - VULNERABLE (Brute force risk)", "error"), 1800);
+                setTimeout(() => {
+                    printLine("Escaneo completado. 3 objetivos encontrados.", "success");
+                    output.scrollTop = output.scrollHeight;
+                }, 2000);
+                break;
+            
+            case 'ping':
+                printLine("Pinging google.com [8.8.8.8] with 32 bytes of data:");
+                let count = 0;
+                let interval = setInterval(() => {
+                    printLine(`Reply from 8.8.8.8: bytes=32 time=${Math.floor(Math.random() * 40)}ms TTL=116`);
+                    output.scrollTop = output.scrollHeight;
+                    count++;
+                    if(count >= 4) {
+                        clearInterval(interval);
+                        printLine("Ping completado.", "success");
+                        output.scrollTop = output.scrollHeight;
+                    }
+                }, 600);
+                break;
+
+            case '':
+                break;
+
+            default:
+                printLine(`Comando no encontrado: ${cmd}. Escriba 'help'.`, "error");
+        }
+    }
   </script>
 
   <script src="futurista.js"></script>
-  <script src="smooth-links.js"></script>
 </body>
 </html>
