@@ -139,6 +139,57 @@
             .main-interface { grid-template-columns: 1fr; height: auto; }
             .info-screen { min-height: 300px; }
         }
+
+        /* =========================================================
+           PERSONALIZACIÓN DEL TRADUCTOR DE GOOGLE (ESTILO CYBERPUNK)
+           ========================================================= */
+        
+        /* Posicionamiento en el header (ajusta top/right según tu header real) */
+        .translator-box {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Elimina el borde azul superior feo de Google */
+        .goog-te-banner-frame.skiptranslate { display: none !important; } 
+        body { top: 0px !important; }
+
+        /* Estilo del botón principal */
+        .goog-te-gadget-simple {
+            background-color: rgba(0, 0, 0, 0.7) !important; /* Fondo oscuro */
+            border: 1px solid #bc13fe !important; /* Borde morado neón */
+            padding: 8px 12px !important;
+            border-radius: 0 !important; /* Bordes cuadrados */
+            font-family: 'Orbitron', sans-serif !important;
+            transition: all 0.3s ease;
+        }
+
+        /* Efecto Hover */
+        .goog-te-gadget-simple:hover {
+            background: rgba(188, 19, 254, 0.2) !important;
+            box-shadow: 0 0 10px #bc13fe;
+        }
+
+        /* Texto dentro del botón (Idioma) */
+        .goog-te-gadget-simple span {
+            color: #fff !important;
+            font-size: 14px !important;
+            font-weight: bold;
+        }
+
+        /* Las flechas y separadores */
+        .goog-te-menu-value span {
+            color: #00f2ff !important; /* Flecha cian */
+            border-left: none !important; /* Quitar linea separatoria */
+        }
+
+        /* Ocultar el logo de Google de colores */
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+
     </style>
 </head>
 <body>
@@ -244,16 +295,7 @@
 
         // Función al quitar el ratón (Opcional: Volver a inicio)
         function resetScreen() {
-            // Si prefieres que se quede la info del último proyecto, borra el contenido de esta función.
-            // Si quieres que vuelva a "Estado de espera", deja esto:
-            /*
-            setTimeout(() => {
-                screenTitle.innerText = "SISTEMA EN ESPERA";
-                screenDesc.innerHTML = "Seleccione un módulo a la izquierda para visualizar los detalles técnicos.<br><br>> Estado: ONLINE";
-                screenBtn.classList.remove('visible');
-            }, 2000); 
-            */
-           // Recomiendo NO resetearlo inmediatamente para que el usuario tenga tiempo de ir al botón de la derecha.
+           // Vacío intencionadamente
         }
 
         // Scripts Estándar (Loader, Cursor, Traductor)
