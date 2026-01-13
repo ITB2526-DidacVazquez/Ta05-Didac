@@ -9,7 +9,69 @@
   <link rel="stylesheet" href="estilos.css">
 
   <style>
-    /* ESTILOS DEL CONTENEDOR PRINCIPAL */
+    /* =========================================================
+       1. AJUSTES DEL HEADER (Para que no colapse)
+       ========================================================= */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Importante: Si no cabe, baja de línea */
+        padding: 20px;
+        gap: 15px; /* Espacio entre elementos */
+    }
+
+    header h1 {
+        margin: 0;
+        flex-grow: 1; /* El título ocupa el espacio disponible */
+    }
+
+    .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* =========================================================
+       2. ESTILOS DEL TRADUCTOR (CYBERPUNK)
+       ========================================================= */
+    .translator-box {
+        z-index: 1000;
+    }
+
+    .goog-te-banner-frame.skiptranslate { display: none !important; } 
+    body { top: 0px !important; }
+
+    .goog-te-gadget-simple {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        border: 1px solid #bc13fe !important;
+        padding: 8px 12px !important;
+        border-radius: 0 !important;
+        font-family: 'Orbitron', sans-serif !important;
+        transition: all 0.3s ease;
+    }
+
+    .goog-te-gadget-simple:hover {
+        background: rgba(188, 19, 254, 0.2) !important;
+        box-shadow: 0 0 10px #bc13fe;
+    }
+
+    .goog-te-gadget-simple span {
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: bold;
+    }
+
+    .goog-te-menu-value span {
+        color: #00f2ff !important;
+        border-left: none !important;
+    }
+
+    .goog-te-gadget-icon { display: none !important; }
+
+    /* =========================================================
+       3. ESTILOS DE LA TERMINAL DE CONTACTO
+       ========================================================= */
     .contact-terminal {
         max-width: 600px;
         margin: 40px auto;
@@ -138,11 +200,16 @@
 
   <header>
     <h1>PROYECTOS_TA05</h1> 
-    <nav class="main-nav">
-      <a href="index.html">Inicio</a>
-      <a href="proyectostotal.html">Archivo</a>
-      <a href="contacto.html" style="color:var(--primary); border-bottom:2px solid var(--primary);">Contacto</a>
-    </nav>
+    
+    <div class="header-controls">
+        <nav class="main-nav">
+          <a href="index.html">Inicio</a>
+          <a href="proyectostotal.html">Archivo</a>
+          <a href="contacto.html" style="color:var(--primary); border-bottom:2px solid var(--primary);">Contacto</a>
+        </nav>
+        
+        <div id="google_translate_element" class="translator-box"></div>
+    </div>
   </header>
 
   <main>
@@ -222,6 +289,15 @@
             
         }, 1500); 
     });
+
+    // 3. Inicialización del Traductor
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es', includedLanguages: 'en,ca,fr,de,it,pt,ru,zh-CN,ja', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false
+        }, 'google_translate_element');
+    }
   </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
