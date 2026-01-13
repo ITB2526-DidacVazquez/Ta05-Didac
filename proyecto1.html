@@ -12,11 +12,11 @@
        ========================================================= */
     header {
         display: flex;
-        flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
-        justify-content: space-between; /* Distribuye espacio */
-        align-items: center; /* Alinea verticalmente al centro */
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        align-items: center; 
         padding: 20px;
-        gap: 20px; /* Espacio entre título, menú y traductor */
+        gap: 20px; 
     }
 
     header h1 {
@@ -25,22 +25,71 @@
         min-width: 200px;
     }
 
-    /* Contenedor para agrupar Nav y Traductor */
     .header-controls {
         display: flex;
         align-items: center;
         gap: 20px;
         flex-wrap: wrap;
-        justify-content: center; /* Si bajan de línea, se centran */
+        justify-content: center; 
     }
 
     /* =========================================================
-       2. ESTILOS DE LA TERMINAL
+       2. NUEVO LAYOUT CON SIDEBAR (Menú Izquierda)
+       ========================================================= */
+    .app-layout {
+        display: flex; /* Esto pone el menú y la terminal lado a lado */
+        max-width: 1000px; /* Ancho máximo para que no se estire demasiado */
+        margin: 20px auto;
+        gap: 20px; /* Espacio entre menú y terminal */
+        padding: 0 10px;
+    }
+
+    /* Estilos del Menú Lateral (Navigator) */
+    .sidebar {
+        width: 200px; /* Ancho fijo para el menú */
+        background: #0c0c0c;
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 15px;
+        height: fit-content; /* Se ajusta a la altura del contenido */
+        font-family: 'Courier New', monospace;
+    }
+
+    .sidebar h3 {
+        color: #ccc;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .nav-link {
+        display: block;
+        color: #00f2ff; /* Cyan del tema */
+        text-decoration: none;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-left: 2px solid transparent;
+        transition: all 0.3s ease;
+        font-weight: bold;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        background: rgba(0, 242, 255, 0.1);
+        border-left: 2px solid #00f2ff;
+        color: #fff;
+    }
+
+    /* Flechita decorativa */
+    .arrow { float: right; }
+
+    /* =========================================================
+       3. ESTILOS DE LA TERMINAL (Ajustados)
        ========================================================= */
     .terminal-container {
-        width: 100%;
-        max-width: 800px;
-        margin: 20px auto;
+        flex: 1; /* Ocupa el resto del espacio disponible a la derecha */
+        /* Eliminamos el margin auto y width porque ahora lo controla el flex padre */
         background-color: #0c0c0c;
         border: 1px solid #333;
         border-radius: 5px;
@@ -52,6 +101,7 @@
         height: 500px;
     }
 
+    /* ... (Resto de estilos de la terminal iguales) ... */
     .terminal-header {
         background: #1a1a1a;
         padding: 5px 15px;
@@ -66,22 +116,13 @@
         flex: 1;
         padding: 15px;
         overflow-y: auto;
-        color: #00ff41; /* Verde Hacker clásico */
+        color: #00ff41; 
         font-size: 0.95rem;
     }
 
-    /* Input invisible para escribir */
-    .input-line {
-        display: flex;
-        align-items: center;
-    }
-
-    .prompt {
-        color: #00f2ff; /* Cyan para el usuario */
-        margin-right: 10px;
-        white-space: nowrap;
-    }
-
+    .input-line { display: flex; align-items: center; }
+    .prompt { color: #00f2ff; margin-right: 10px; white-space: nowrap; }
+    
     #cmdInput {
         background: transparent;
         border: none;
@@ -92,26 +133,23 @@
         outline: none;
     }
 
-    /* Scrollbar personalizada */
     .terminal-body::-webkit-scrollbar { width: 8px; }
     .terminal-body::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-
-    /* Efecto de respuesta del sistema */
     .response-line { margin-bottom: 5px; color: #ccc; }
     .success { color: #00ff41; }
     .error { color: #ff3333; }
     .warning { color: #ffcc00; }
 
-    /* =========================================================
-       3. ESTILOS DEL TRADUCTOR (MODIFICADO: NO ABSOLUTO)
-       ========================================================= */
-    
-    .translator-box {
-        /* IMPORTANTE: position static para que fluya en el medio */
-        position: static; 
-        z-index: 1000;
+    /* Responsive: En móvil el menú se pone arriba */
+    @media (max-width: 700px) {
+        .app-layout { flex-direction: column; }
+        .sidebar { width: 100%; box-sizing: border-box; }
     }
 
+    /* =========================================================
+       4. ESTILOS DEL TRADUCTOR
+       ========================================================= */
+    .translator-box { position: static; z-index: 1000; }
     .goog-te-banner-frame.skiptranslate { display: none !important; } 
     body { top: 0px !important; }
 
@@ -139,7 +177,6 @@
         color: #00f2ff !important;
         border-left: none !important;
     }
-
     .goog-te-gadget-icon { display: none !important; }
 
   </style>
@@ -150,7 +187,6 @@
     
     <div class="header-controls">
         <div id="google_translate_element" class="translator-box"></div>
-        
         <nav class="main-nav">
           <a href="index.html">Inicio</a>
           <a href="contacto.html">Contacto</a>
@@ -159,22 +195,36 @@
   </header>
 
   <main>
-    <div class="terminal-container">
-        <div class="terminal-header">
-            <span>root@ciberadmin-server:~</span>
-            <span>BASH v5.1</span>
-        </div>
-        <div class="terminal-body" id="terminalOutput">
-            <div class="response-line">Inicializando sistema de auditoría...</div>
-            <div class="response-line">Conexión establecida segurizada (SSH).</div>
-            <div class="response-line">Escriba <span class="warning">'help'</span> para ver la lista de comandos disponibles.</div>
-            <br>
-            
-            <div class="input-line">
-                <span class="prompt">root@server:~$</span>
-                <input type="text" id="cmdInput" autocomplete="off" autofocus>
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <h3>Navigator</h3>
+            <a href="proyecto1.html" class="nav-link active">
+                Link: Project 1 <span class="arrow">&gt;</span>
+            </a>
+            <a href="proyecto2.html" class="nav-link">
+                Link: Project 2 <span class="arrow">&gt;</span>
+            </a>
+        </aside>
+
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span>root@ciberadmin-server:~</span>
+                <span>BASH v5.1</span>
+            </div>
+            <div class="terminal-body" id="terminalOutput">
+                <div class="response-line">Inicializando sistema de auditoría...</div>
+                <div class="response-line">Conexión establecida segurizada (SSH).</div>
+                <div class="response-line">Escriba <span class="warning">'help'</span> para ver la lista de comandos disponibles.</div>
+                <br>
+                
+                <div class="input-line">
+                    <span class="prompt">root@server:~$</span>
+                    <input type="text" id="cmdInput" autocomplete="off" autofocus>
+                </div>
             </div>
         </div>
+
     </div>
   </main>
 
@@ -190,14 +240,8 @@
     input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             const command = this.value.trim().toLowerCase();
-            
-            // 1. Añadir la línea que el usuario escribió al historial
             printLine(`root@server:~$ ${this.value}`, 'prompt-style');
-
-            // 2. Procesar el comando
             processCommand(command);
-
-            // 3. Limpiar input y hacer scroll
             this.value = '';
             output.scrollTop = output.scrollHeight;
         }
@@ -209,11 +253,7 @@
         if (type === 'error') div.style.color = '#ff3333';
         if (type === 'success') div.style.color = '#00ff41';
         if (type === 'prompt-style') div.style.color = '#00f2ff';
-        
-        // Insertamos antes de la línea de input
         output.insertBefore(div, container);
-        
-        // Simular escritura o imprimir directo
         div.innerHTML = text;
     }
 
@@ -228,22 +268,17 @@
                 printLine("- date: Muestra fecha y hora del sistema");
                 printLine("- clear: Limpia la pantalla");
                 break;
-
             case 'whoami':
                 printLine("root (Privilegios de Administrador)", "success");
                 break;
-
             case 'date':
                 printLine(new Date().toString());
                 break;
-
             case 'clear':
-                // Borramos todo menos el input
                 while (output.firstChild && output.firstChild !== container) {
                     output.removeChild(output.firstChild);
                 }
                 break;
-
             case 'scan':
                 printLine("Iniciando escaneo de puertos en 192.168.1.X...", "warning");
                 setTimeout(() => printLine("[+] Puerto 80 (HTTP) - ABIERTO"), 500);
@@ -254,7 +289,6 @@
                     output.scrollTop = output.scrollHeight;
                 }, 2000);
                 break;
-            
             case 'ping':
                 printLine("Pinging google.com [8.8.8.8] with 32 bytes of data:");
                 let count = 0;
@@ -269,16 +303,12 @@
                     }
                 }, 600);
                 break;
-
-            case '':
-                break;
-
+            case '': break;
             default:
                 printLine(`Comando no encontrado: ${cmd}. Escriba 'help'.`, "error");
         }
     }
 
-    // Script del Traductor
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'es', includedLanguages: 'en,ca,fr,de,it,pt,ru,zh-CN,ja', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false
