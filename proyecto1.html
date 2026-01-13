@@ -7,7 +7,36 @@
   <link rel="stylesheet" href="estilos.css">
   <link rel="icon" type="image/png" href="mi-logo.png">
   <style>
-    /* Estilos Específicos para la Terminal de este proyecto */
+    /* =========================================================
+       1. AJUSTE DEL HEADER (Flexbox para centrar)
+       ========================================================= */
+    header {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+        justify-content: space-between; /* Distribuye espacio */
+        align-items: center; /* Alinea verticalmente al centro */
+        padding: 20px;
+        gap: 20px; /* Espacio entre título, menú y traductor */
+    }
+
+    header h1 {
+        margin: 0;
+        flex-grow: 1;
+        min-width: 200px;
+    }
+
+    /* Contenedor para agrupar Nav y Traductor */
+    .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center; /* Si bajan de línea, se centran */
+    }
+
+    /* =========================================================
+       2. ESTILOS DE LA TERMINAL
+       ========================================================= */
     .terminal-container {
         width: 100%;
         max-width: 800px;
@@ -74,13 +103,12 @@
     .warning { color: #ffcc00; }
 
     /* =========================================================
-       ESTILOS DEL TRADUCTOR (CYBERPUNK)
+       3. ESTILOS DEL TRADUCTOR (MODIFICADO: NO ABSOLUTO)
        ========================================================= */
     
     .translator-box {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        /* IMPORTANTE: position static para que fluya en el medio */
+        position: static; 
         z-index: 1000;
     }
 
@@ -119,12 +147,15 @@
 <body>
   <header>
     <h1><a href="index.html" style="text-decoration:none; color:inherit;">VOLVER AL MENU</a></h1>
-    <nav class="main-nav">
-      <a href="index.html">Inicio</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
     
-    <div id="google_translate_element" class="translator-box"></div>
+    <div class="header-controls">
+        <div id="google_translate_element" class="translator-box"></div>
+        
+        <nav class="main-nav">
+          <a href="index.html">Inicio</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+    </div>
   </header>
 
   <main>
