@@ -7,7 +7,36 @@
   <link rel="stylesheet" href="estilos.css">
   <link rel="icon" type="image/png" href="mi-logo.png">
   <style>
-    /* Estilos exclusivos para el Dashboard */
+    /* =========================================================
+       1. AJUSTES DEL HEADER (Anti-Colapso)
+       ========================================================= */
+    header {
+        display: flex;
+        flex-wrap: wrap; /* Permite bajar de línea si falta sitio */
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        flex-grow: 1;
+        min-width: 250px;
+    }
+
+    /* Contenedor para agrupar Nav + Traductor */
+    .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* =========================================================
+       2. ESTILOS DEL DASHBOARD
+       ========================================================= */
     .dashboard-grid {
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -87,16 +116,16 @@
 
     @media (max-width: 768px) {
         .dashboard-grid { grid-template-columns: 1fr; }
+        header { flex-direction: column; align-items: flex-start; }
+        .header-controls { width: 100%; justify-content: space-between; margin-top: 10px; }
     }
 
     /* =========================================================
-       ESTILOS DEL TRADUCTOR (CYBERPUNK)
+       3. ESTILOS DEL TRADUCTOR (Integrado en el flujo)
        ========================================================= */
     
     .translator-box {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: static; /* Ya no flota, respeta el layout */
         z-index: 1000;
     }
 
@@ -133,14 +162,18 @@
   </style>
 </head>
 <body>
+  
   <header>
     <h1><a href="index.html" style="text-decoration:none; color:inherit;">VOLVER AL MENU</a></h1>
-    <nav class="main-nav">
-      <a href="index.html">Inicio</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
     
-    <div id="google_translate_element" class="translator-box"></div>
+    <div class="header-controls">
+        <nav class="main-nav">
+          <a href="index.html">Inicio</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+        
+        <div id="google_translate_element" class="translator-box"></div>
+    </div>
   </header>
 
   <main>
