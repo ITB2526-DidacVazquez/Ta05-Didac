@@ -1,43 +1,60 @@
-# Ta05-Didac
-🚀 Mi Portfolio Personal - Dídac Vázquez Gayoso
-¡Bienvenido a mi rincón en la web! He desarrollado este portfolio interactivo para centralizar mis proyectos de programación y diseño. Es una plataforma dinámica, limpia y totalmente funcional que refleja mi aprendizaje y pasión por la tecnología.
+¡Bienvenido a mi repositorio! Este proyecto es mucho más que un currículum web; es una plataforma interactiva, diseñada con una estética Cyberpunk/Futurista, que centraliza mis proyectos de desarrollo web y demuestra mis habilidades técnicas en tiempo real.
 
-🤖 El rol de la Inteligencia Artificial
-Para la creación de esta página, he contado con el apoyo de la Inteligencia Artificial como un "compañero de equipo" o pair programmer.
+🤖 El Rol de la IA: Pair Programming
+Para el desarrollo de este portfolio, he trabajado mano a mano con Inteligencia Artificial, utilizándola no como un generador de código automático, sino como un compañero de equipo (Pair Programmer).
 
-Diseño y Estructura: Utilicé IA para idear la disposición del layout y asegurar que el diseño fuera profesional y moderno.
+Refactorización: Optimización de la lógica en JavaScript y limpieza de CSS redundante.
 
-Optimización de Código: Me ayudó a refinar mis scripts de JavaScript, especialmente en la lógica de filtrado del buscador y en la corrección de errores estructurales de HTML.
+Resolución de Bugs: Soluciones rápidas para problemas de colapso en móviles y posicionamiento de elementos flotantes.
 
-Resolución de Problemas: La IA fue clave para implementar soluciones rápidas en el diseño responsivo y en la limpieza de estilos CSS duplicados.
+Creatividad: Apoyo en la ideación de la estética "Neon/Dark Mode" y la simulación de entornos reales.
 
-🌟 Funcionalidades Principales
-Mi página no es solo un currículum estático, cuenta con varias herramientas interactivas:
+🌟 Proyectos Destacados (Simulaciones Interactivas)
+Este portfolio incluye mini-aplicaciones funcionales programadas con Vanilla JavaScript:
 
-Buscador Dinámico: He implementado un sistema de búsqueda en tiempo real. Al escribir en el panel izquierdo, la lista de proyectos se filtra automáticamente. Los proyectos que aún no están listos aparecen como "Próximamente" de forma inteligente.
+1. 🛡️ Terminal Ciberadmin (Simulador Linux)
+Una consola interactiva que simula un entorno de administración de servidores vía SSH.
 
-Sistema de Traducción: Gracias a la integración con la API de Google Translate, mi portfolio es accesible para personas de todo el mundo en más de 9 idiomas.
+Funcionalidades: Permite escribir comandos reales como help, scan (escaneo de puertos simulado), ping, whoami y date.
 
-Experiencia de Usuario (Preloader): He añadido un "loader" animado que recibe al usuario mientras se cargan todos los recursos, mejorando la percepción de rendimiento.
+Estética: Estilo "Hacker" con fuentes monoespaciadas, colores fósforo verde/cyan y efectos de escritura automática.
 
-Galería de Proyectos Interactiva: Las miniaturas de los proyectos (como el Tetris o el sistema de Partículas) cuentan con efectos de zoom y capas informativas (overlays) al pasar el ratón.
+2. 📊 Dashboard SIEM (Monitorización de Red)
+Un panel de control de seguridad informática con diseño Glassmorphism.
 
-Juego de Tetris Integrado: Uno de mis proyectos estrella es un Tetris funcional programado en JavaScript que se puede jugar directamente desde la página de detalles.
+Visualización de Datos: Gráfica de tráfico de red en tiempo real dibujada con HTML5 Canvas API.
 
-🛠️ Un vistazo al Código
-A nivel técnico, he estructurado el proyecto de la siguiente manera:
+Logs en vivo: Sistema de alertas que genera eventos de seguridad (falsos positivos, ataques SSH, SQL Injection) dinámicamente.
 
-HTML5 & CSS3: He utilizado una arquitectura basada en Flexbox y CSS Grid para que la página sea robusta. La galería principal, por ejemplo, usa un sistema de rejilla fraccional (1fr 1fr) para que las imágenes se ajusten perfectamente al 50% del ancho.
+Diseño: Paneles semitransparentes y badges de estado.
 
-JavaScript (Vanillajs): * Utilizo funciones para manipular el DOM y ocultar/mostrar elementos según lo que el usuario escribe en el buscador.
 
-Gestiono eventos de teclado para el control del juego Tetris.
+🛠️ Características Técnicas y UI/UX
+🌍 Internacionalización (i18n)
+He integrado la API de Google Translate de forma nativa.
 
-Uso localStorage o scripts de carga para gestionar la visibilidad del spinner de bienvenida.
+Mejora reciente: El botón de traducción ya no es un elemento flotante intrusivo; ahora forma parte del flujo natural del header, adaptándose perfectamente junto al menú de navegación sin tapar contenido.
 
-Responsividad: He escrito media queries específicas para asegurar que, si visitas mi portfolio desde un móvil, todo el contenido se reorganice de forma vertical para que no se pierda legibilidad.
+📱 Diseño Responsivo "Anti-Colapso"
+La web está blindada contra roturas de diseño en móviles:
 
-📬 Contacto
-Si te gusta lo que ves o tienes alguna duda, no dudes en contactarme a través de la sección de contacto de la web. ¡Estoy abierto a nuevas ideas y colaboraciones!
+Flexbox Wrappers: Los menús y cabeceras detectan el ancho de la pantalla y reorganizan los elementos (título, botones, traductor) en nuevas líneas si es necesario, manteniendo todo centrado y legible.
 
-Desarrollado con ❤️ por Dídac Vázquez
+Media Queries: Grid layouts que pasan de 2 columnas a 1 columna automáticamente en dispositivos móviles.
+
+🔍 Buscador Dinámico
+Sistema de filtrado en tiempo real en la página de inicio (index.html). Al escribir, el DOM se actualiza instantáneamente para mostrar solo los proyectos coincidentes, marcando los no disponibles con etiquetas de "Próximamente".
+
+⚡ Performance
+Preloader Animado: Un spinner de carga gestiona la experiencia de usuario inicial mientras se descargan los recursos pesados.
+
+Validación de Formularios: El apartado de contacto incluye validación nativa y visual para asegurar la integridad de los datos enviados.
+
+💻 Stack Tecnológico
+Lenguajes: HTML5, CSS3, JavaScript (ES6+).
+
+Estilos: CSS Grid, Flexbox, Variables CSS (Custom Properties), Animaciones Keyframes.
+
+APIs: Canvas API (Gráficas), Google Translate API.
+
+Herramientas: VS Code, Git/GitHub.
