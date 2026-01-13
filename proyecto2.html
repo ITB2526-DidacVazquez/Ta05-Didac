@@ -8,11 +8,11 @@
   <link rel="icon" type="image/png" href="mi-logo.png">
   <style>
     /* =========================================================
-       1. AJUSTES DEL HEADER (Anti-Colapso)
+       1. AJUSTES DEL HEADER (Igual que Proyecto 1)
        ========================================================= */
     header {
         display: flex;
-        flex-wrap: wrap; /* Permite bajar de línea si falta sitio */
+        flex-wrap: wrap; 
         justify-content: space-between;
         align-items: center;
         padding: 20px;
@@ -25,7 +25,6 @@
         min-width: 250px;
     }
 
-    /* Contenedor para agrupar Nav + Traductor */
     .header-controls {
         display: flex;
         align-items: center;
@@ -35,7 +34,65 @@
     }
 
     /* =========================================================
-       2. ESTILOS DEL DASHBOARD
+       2. ESTRUCTURA LAYOUT (SIDEBAR + CONTENIDO)
+       ========================================================= */
+    .app-layout {
+        display: flex; /* Flexbox para poner menú y dashboard lado a lado */
+        max-width: 1200px; /* Un poco más ancho para que quepa bien la gráfica */
+        margin: 20px auto;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    /* Estilos del Menú Lateral (Navigator) */
+    .sidebar {
+        width: 200px; /* Ancho fijo */
+        background: #0c0c0c;
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 15px;
+        height: fit-content;
+        font-family: 'Courier New', monospace;
+        flex-shrink: 0; /* Evita que el menú se aplaste */
+    }
+
+    .sidebar h3 {
+        color: #ccc;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .nav-link {
+        display: block;
+        color: #00f2ff;
+        text-decoration: none;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-left: 2px solid transparent;
+        transition: all 0.3s ease;
+        font-weight: bold;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        background: rgba(0, 242, 255, 0.1);
+        border-left: 2px solid #00f2ff;
+        color: #fff;
+    }
+
+    .arrow { float: right; }
+
+    /* Contenedor Derecho (Donde va el Dashboard) */
+    .content-area {
+        flex: 1; /* Ocupa el resto del espacio */
+        min-width: 0; /* IMPORTANTE: Evita desbordamiento de grid dentro de flex */
+    }
+
+    /* =========================================================
+       3. ESTILOS DEL DASHBOARD (Tus estilos originales)
        ========================================================= */
     .dashboard-grid {
         display: grid;
@@ -44,7 +101,6 @@
         margin-top: 20px;
     }
 
-    /* Paneles con efecto cristal */
     .panel {
         background: rgba(0, 0, 0, 0.4);
         border: 1px solid #333;
@@ -53,7 +109,10 @@
         box-shadow: 0 0 10px rgba(0, 242, 255, 0.05);
     }
 
-    h3 {
+    h2 { font-family: 'Orbitron', sans-serif; margin-bottom: 10px; color: white; }
+    
+    /* Ajuste para los títulos de los paneles */
+    .panel h3 {
         color: #00f2ff;
         font-family: 'Orbitron', sans-serif;
         margin-bottom: 15px;
@@ -62,7 +121,6 @@
         font-size: 1rem;
     }
 
-    /* Canvas para gráfica de tráfico */
     #trafficChart {
         width: 100%;
         height: 250px;
@@ -70,7 +128,6 @@
         border: 1px solid #333;
     }
 
-    /* Lista de Logs */
     .log-list {
         height: 250px;
         overflow-y: auto;
@@ -99,7 +156,6 @@
     .status-warn { border: 1px solid #ffcc00; color: #ffcc00; }
     .status-crit { border: 1px solid #ff3333; color: #ff3333; }
 
-    /* Muestra de código */
     .code-block {
         background: #0c0c0c;
         padding: 15px;
@@ -114,21 +170,21 @@
     .string { color: #00ff41; }
     .comment { color: #666; font-style: italic; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+        .app-layout { flex-direction: column; }
+        .sidebar { width: 100%; box-sizing: border-box; }
         .dashboard-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
         header { flex-direction: column; align-items: flex-start; }
         .header-controls { width: 100%; justify-content: space-between; margin-top: 10px; }
     }
 
     /* =========================================================
-       3. ESTILOS DEL TRADUCTOR (Integrado en el flujo)
+       4. ESTILOS DEL TRADUCTOR
        ========================================================= */
-    
-    .translator-box {
-        position: static; /* Ya no flota, respeta el layout */
-        z-index: 1000;
-    }
-
+    .translator-box { position: static; z-index: 1000; }
     .goog-te-banner-frame.skiptranslate { display: none !important; } 
     body { top: 0px !important; }
 
@@ -145,18 +201,8 @@
         background: rgba(188, 19, 254, 0.2) !important;
         box-shadow: 0 0 10px #bc13fe;
     }
-
-    .goog-te-gadget-simple span {
-        color: #fff !important;
-        font-size: 14px !important;
-        font-weight: bold;
-    }
-
-    .goog-te-menu-value span {
-        color: #00f2ff !important;
-        border-left: none !important;
-    }
-
+    .goog-te-gadget-simple span { color: #fff !important; font-size: 14px !important; font-weight: bold; }
+    .goog-te-menu-value span { color: #00f2ff !important; border-left: none !important; }
     .goog-te-gadget-icon { display: none !important; }
 
   </style>
@@ -177,39 +223,52 @@
   </header>
 
   <main>
-    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
-        <h2 style="color: white; font-family: 'Orbitron'; margin-bottom: 10px;">DASHBOARD DE MONITORIZACIÓN DE RED (SIEM)</h2>
-        <p style="color: #ccc; margin-bottom: 20px;">
-            Este panel simula la visualización de tráfico en tiempo real y la detección de intrusiones (IDS). 
-            Como administrador, herramientas como <strong>Wazuh</strong>, <strong>Splunk</strong> o scripts personalizados en <strong>Python</strong> son esenciales para mantener la integridad de la infraestructura.
-        </p>
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <h3>Navigator</h3>
+            <a href="proyecto1.html" class="nav-link">
+                Link: Project 1 <span class="arrow">&gt;</span>
+            </a>
+            <a href="proyecto2.html" class="nav-link active">
+                Link: Project 2 <span class="arrow">&gt;</span>
+            </a>
+        </aside>
 
-        <div class="dashboard-grid">
-            
-            <div class="panel">
-                <h3>TRÁFICO DE RED (LIVE PACKETS)</h3>
-                <canvas id="trafficChart"></canvas>
-                
-                <div style="margin-top: 20px; display: flex; justify-content: space-around; flex-wrap: wrap; gap:10px;">
-                    <div class="status-badge status-ok">FIREWALL: ACTIVO</div>
-                    <div class="status-badge status-ok">IDS: MONITORIZANDO</div>
-                    <div class="status-badge status-warn">LOAD: 78%</div>
+        <div class="content-area">
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                <h2>DASHBOARD DE MONITORIZACIÓN DE RED (SIEM)</h2>
+                <p style="color: #ccc; margin-bottom: 20px;">
+                    Este panel simula la visualización de tráfico en tiempo real y la detección de intrusiones (IDS). 
+                    Como administrador, herramientas como <strong>Wazuh</strong>, <strong>Splunk</strong> o scripts personalizados en <strong>Python</strong> son esenciales para mantener la integridad de la infraestructura.
+                </p>
+
+                <div class="dashboard-grid">
+                    
+                    <div class="panel">
+                        <h3>TRÁFICO DE RED (LIVE PACKETS)</h3>
+                        <canvas id="trafficChart"></canvas>
+                        
+                        <div style="margin-top: 20px; display: flex; justify-content: space-around; flex-wrap: wrap; gap:10px;">
+                            <div class="status-badge status-ok">FIREWALL: ACTIVO</div>
+                            <div class="status-badge status-ok">IDS: MONITORIZANDO</div>
+                            <div class="status-badge status-warn">LOAD: 78%</div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <h3>ÚLTIMAS ALERTAS DE SEGURIDAD</h3>
+                        <div class="log-list" id="logContainer">
+                            <div class="log-item"><span style="color:#00ff41">[INFO]</span> <span>System Boot complete</span></div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="panel">
-                <h3>ÚLTIMAS ALERTAS DE SEGURIDAD</h3>
-                <div class="log-list" id="logContainer">
-                    <div class="log-item"><span style="color:#00ff41">[INFO]</span> <span>System Boot complete</span></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="panel" style="margin-top: 20px;">
-            <h3>AUTOMATIZACIÓN: PYTHON LOG PARSER (SNIPPET)</h3>
-            <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">Ejemplo de cómo un script analiza logs buscando intentos de fuerza bruta:</p>
-            <div class="code-block">
+                <div class="panel" style="margin-top: 20px;">
+                    <h3>AUTOMATIZACIÓN: PYTHON LOG PARSER (SNIPPET)</h3>
+                    <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">Ejemplo de cómo un script analiza logs buscando intentos de fuerza bruta:</p>
+                    <div class="code-block">
 <span class="keyword">import</span> re
 <span class="keyword">from</span> datetime <span class="keyword">import</span> datetime
 
@@ -223,20 +282,25 @@
                 suspicious_ips[ip] = suspicious_ips.get(ip, 0) + 1
                 
     <span class="keyword">return</span> suspicious_ips
-            </div>
-        </div>
+                    </div>
+                </div>
 
-    </div>
-  </main>
+            </div>
+        </div> </div> </main>
 
   <script>
     // --- 1. LÓGICA DE LA GRÁFICA DE TRÁFICO (Canvas) ---
     const canvas = document.getElementById('trafficChart');
     const ctx = canvas.getContext('2d');
     
-    // Ajustar resolución
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    // Función para redimensionar el canvas dinámicamente
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    // Llamar al inicio y si cambia el tamaño de ventana
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
     let dataPoints = [];
     const maxPoints = 50;
@@ -319,7 +383,6 @@
         }
     }
 
-    // Añadir un log cada 1.5 - 3 segundos
     setInterval(addLog, 2000);
 
     // --- 3. INICIALIZACIÓN DEL TRADUCTOR ---
