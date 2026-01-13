@@ -8,7 +8,35 @@
     <link rel="stylesheet" href="estilos.css">
     
     <style>
-        /* ESTILOS ESPECÍFICOS PARA ESTA PORTADA SPLIT */
+        /* =========================================================
+           1. AJUSTES DEL HEADER (Anti-Colapso)
+           ========================================================= */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+            gap: 20px;
+            padding: 20px; /* Aseguramos padding interno */
+        }
+
+        header h1 {
+            margin: 0;
+            flex-grow: 1; /* El título ocupa el espacio sobrante */
+            min-width: 250px; /* Evita que el título se aplaste demasiado */
+        }
+
+        /* Contenedor para agrupar Menú + Traductor a la derecha */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           2. ESTILOS ESPECÍFICOS PARA ESTA PORTADA SPLIT
+           ========================================================= */
         
         /* Contenedor principal dividido */
         .main-interface {
@@ -138,17 +166,17 @@
         @media (max-width: 768px) {
             .main-interface { grid-template-columns: 1fr; height: auto; }
             .info-screen { min-height: 300px; }
+            header { flex-direction: column; align-items: flex-start; }
+            .header-controls { width: 100%; justify-content: space-between; margin-top: 10px; }
         }
 
         /* =========================================================
            PERSONALIZACIÓN DEL TRADUCTOR DE GOOGLE (ESTILO CYBERPUNK)
            ========================================================= */
         
-        /* Posicionamiento en el header (ajusta top/right según tu header real) */
         .translator-box {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            /* IMPORTANTE: position static para que fluya dentro del flexbox */
+            position: static; 
             z-index: 1000;
         }
 
@@ -199,13 +227,16 @@
 
     <header>
         <h1>PROYECTOS PRINCIPALES | Dídac Vázquez</h1>
-        <nav class="main-nav">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="proyectostotal.html">Archivo de Proyectos</a> 
-            <a href="contacto.html">Contacto</a>
-        </nav>
         
-        <div id="google_translate_element" class="translator-box"></div>
+        <div class="header-controls">
+            <nav class="main-nav">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="proyectostotal.html">Archivo de Proyectos</a> 
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            
+            <div id="google_translate_element" class="translator-box"></div>
+        </div>
     </header>
 
     <main>
