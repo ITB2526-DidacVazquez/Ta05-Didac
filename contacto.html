@@ -1,38 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/png" href="mi-logo.png">
-  <title>Contacto </title>
+  <title>Contacto | Dídac Vázquez</title>
   
   <link rel="stylesheet" href="estilos.css">
 
   <style>
-    /* ESTILOS FUTURISTAS ESPECÍFICOS PARA CONTACTO */
-    
-    /* Contenedor tipo "Holograma" */
+    /* ESTILOS DEL CONTENEDOR PRINCIPAL */
     .contact-terminal {
         max-width: 600px;
         margin: 40px auto;
         padding: 40px;
-        background: rgba(5, 5, 16, 0.85); /* Fondo oscuro semitransparente */
+        background: rgba(5, 5, 16, 0.85);
         border: 1px solid #333;
-        border-left: 5px solid #00f2ff; /* Borde lateral Cyan */
+        border-left: 5px solid #00f2ff;
         box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
         position: relative;
         overflow: hidden;
         backdrop-filter: blur(5px);
+        min-height: 480px; /* Altura fija para evitar saltos */
     }
 
     /* Decoración de esquina */
     .contact-terminal::before {
-        content: '';
-        position: absolute;
-        top: 0; right: 0;
-        width: 30px; height: 30px;
-        border-top: 2px solid #bc13fe;
-        border-right: 2px solid #bc13fe;
+        content: ''; position: absolute; top: 0; right: 0;
+        width: 30px; height: 30px; border-top: 2px solid #bc13fe; border-right: 2px solid #bc13fe;
     }
 
     .intro-text {
@@ -43,77 +38,44 @@
         padding-bottom: 10px;
     }
 
-    /* Estilo de los Labels */
+    /* ESTILOS DE FORMULARIO */
     form label {
-        display: block;
-        margin-top: 20px;
-        color: #bc13fe; /* Morado neón */
-        font-family: 'Orbitron', sans-serif;
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+        display: block; margin-top: 20px; color: #bc13fe;
+        font-family: 'Orbitron', sans-serif; font-size: 0.9rem;
+        letter-spacing: 1px; text-transform: uppercase;
     }
 
-    /* Estilo de los Inputs y Textarea */
     form input, form textarea {
-        width: 100%;
-        padding: 12px;
-        margin-top: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        border: none;
-        border-bottom: 2px solid #333;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        transition: 0.4s;
-        outline: none;
+        width: 100%; padding: 12px; margin-top: 8px;
+        background: rgba(255, 255, 255, 0.05); border: none; border-bottom: 2px solid #333;
+        color: white; font-family: 'Poppins', sans-serif; transition: 0.4s; outline: none;
     }
 
-    /* Efecto al escribir (Focus) */
     form input:focus, form textarea:focus {
-        background: rgba(0, 242, 255, 0.05);
-        border-bottom: 2px solid #00f2ff;
-        box-shadow: 0 5px 10px rgba(0, 242, 255, 0.1);
-        padding-left: 20px; /* Desplazamiento suave */
+        background: rgba(0, 242, 255, 0.05); border-bottom: 2px solid #00f2ff;
+        box-shadow: 0 5px 10px rgba(0, 242, 255, 0.1); padding-left: 20px;
     }
 
-    form textarea {
-        min-height: 120px;
-        resize: vertical;
-    }
+    form textarea { min-height: 120px; resize: vertical; }
 
-    /* Botón Cyberpunk */
+    /* BOTÓN */
     button[type="submit"] {
-        margin-top: 30px;
-        width: 100%;
-        padding: 15px;
-        background: transparent;
-        border: 1px solid #00f2ff;
-        color: #00f2ff;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        cursor: pointer;
-        position: relative;
-        transition: 0.3s;
-        overflow: hidden;
+        margin-top: 30px; width: 100%; padding: 15px;
+        background: transparent; border: 1px solid #00f2ff; color: #00f2ff;
+        font-family: 'Orbitron', sans-serif; font-weight: bold; letter-spacing: 2px;
+        text-transform: uppercase; cursor: pointer; position: relative;
+        transition: 0.3s; overflow: hidden;
     }
 
-    /* Efecto Hover del Botón */
     button[type="submit"]:hover {
-        background: #00f2ff;
-        color: #000;
-        box-shadow: 0 0 20px #00f2ff;
+        background: #00f2ff; color: #000; box-shadow: 0 0 20px #00f2ff;
     }
 
-    /* Línea de escaneo decorativa */
+    /* LÍNEA DECORATIVA */
     .scan-line {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 2px;
-        background: rgba(0, 242, 255, 0.5);
-        animation: scan 3s linear infinite;
-        opacity: 0.5;
-        pointer-events: none;
+        position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+        background: rgba(0, 242, 255, 0.5); animation: scan 3s linear infinite;
+        opacity: 0.5; pointer-events: none; z-index: 10;
     }
 
     @keyframes scan {
@@ -122,14 +84,64 @@
         100% { top: 100%; opacity: 0; }
     }
 
+    /* =========================================
+       ANIMACIÓN DE ÉXITO (ESTILOS NUEVOS)
+       ========================================= */
+    
+    #success-message {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        animation: fadeIn 1s ease forwards;
+        padding-top: 60px;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+    .success-icon {
+        font-size: 4rem; color: #00f2ff;
+        text-shadow: 0 0 20px #00f2ff;
+        margin-bottom: 20px;
+        animation: pulseIcon 2s infinite;
+    }
+
+    @keyframes pulseIcon { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+    .success-title {
+        font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 15px;
+    }
+
+    .success-desc {
+        font-family: 'Courier New', monospace; color: #ccc; font-size: 1rem; line-height: 1.5;
+    }
+
+    /* Barra de Progreso dentro del botón */
+    .btn-loading {
+        background: #333 !important; color: transparent !important; pointer-events: none;
+    }
+    .btn-loading::after {
+        content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 0%;
+        background: #00f2ff;
+        animation: loadingBar 1.5s ease-in-out forwards; /* Duración de la "subida" */
+    }
+
+    @keyframes loadingBar { 0% { width: 0%; } 100% { width: 100%; } }
+
   </style>
 </head>
 <body>
   
-  <div id="cursor-glow"></div> <header>
-    <h1>PROYECTOS_TA05</h1> <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="contacto.html" style="color:var(--primary); border-bottom:2px solid var(--primary);">Contact</a>
+  <div id="cursor-glow"></div> 
+
+  <header>
+    <h1>PROYECTOS_TA05</h1> 
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="proyectostotal.html">Archivo</a>
+      <a href="contacto.html" style="color:var(--primary); border-bottom:2px solid var(--primary);">Contacto</a>
     </nav>
   </header>
 
@@ -137,34 +149,49 @@
     <div class="contact-terminal">
         <div class="scan-line"></div>
 
-        <p class="intro-text">
-        
-            <br>
-            Puedes contactarme a través del siguiente formulario:
-        </p>
+        <div id="form-container">
+            <p class="intro-text">
+                <br> Puedes contactarme a través del siguiente formulario:
+            </p>
 
-        <form action="#" method="POST">
-            <div>
-                <label for="name">Nombre </label>
-                <input id="name" name="name" type="text" placeholder="Introduce tu identidad..." required>
-            </div>
-            
-            <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required>
-            </div>
-            
-            <div>
-                <label for="message">Mensaje </label>
-                <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..."></textarea>
-            </div>
-            
-            <button type="submit">ENVIAR DATOS >></button>
-        </form>
+            <form id="contactForm">
+                <div>
+                    <label for="name">Nombre</label>
+                    <input id="name" name="name" type="text" placeholder="Introduce tu nombre..." required>
+                </div>
+                
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" required>
+                </div>
+                
+                <div>
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                
+                <button type="submit" id="submitBtn">ENVIAR MENSAJE >></button>
+            </form>
+        </div>
+
+        <div id="success-message">
+            <div class="success-icon">✔</div>
+            <h2 class="success-title">MENSAJE ENVIADO</h2>
+            <p class="success-desc">
+                Gracias por contactar.<br>
+                He recibido tu mensaje correctamente.<br>
+                Te responderé a la mayor brevedad posible.
+            </p>
+            <button onclick="location.reload()" style="margin-top:40px; border-color:#bc13fe; color:#bc13fe; width:auto; padding:10px 40px;">
+                VOLVER
+            </button>
+        </div>
+
     </div>
   </main>
 
   <script>
+    // 1. Efecto Cursor
     const glow = document.getElementById('cursor-glow');
     if(glow){
         document.addEventListener('mousemove', (e) => {
@@ -172,6 +199,29 @@
             glow.style.top = e.clientY + 'px';
         });
     }
+
+    // 2. Lógica de Envío y Animación
+    const form = document.getElementById('contactForm');
+    const formContainer = document.getElementById('form-container');
+    const successMessage = document.getElementById('success-message');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que la página se recargue inmediatamente
+
+        // A) Cambiar botón a modo "Cargando" (Barra de progreso)
+        submitBtn.classList.add('btn-loading');
+        
+        // B) Esperar 1.5 segundos (tiempo que dura la animación de la barra)
+        setTimeout(() => {
+            // Ocultar formulario
+            formContainer.style.display = 'none';
+            
+            // Mostrar mensaje de éxito
+            successMessage.style.display = 'flex';
+            
+        }, 1500); 
+    });
   </script>
 </body>
 </html>
